@@ -1,12 +1,12 @@
 import express from 'express';
 import connectToDB from './connections/localConnection.mjs';
-import usersRouter from './users.mjs';
+import accessRoutes from './routes/access.mjs';
 
 const PORT = 3636;
 const app = express();
 
 app.use(express.json())
-app.use('v1/application/',accessRoutes);
+app.use('/v1/application/',accessRoutes);
 
 app.get('/',(req,res)=>{
     console.log("hello");

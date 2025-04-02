@@ -5,7 +5,7 @@ const skills = new Schema({
         type: Schema.Types.ObjectId,  // Storing reference
         ref: 'users'  // Refers to 'User' model
     },
-    skills:String    
+    skill:String    
 })
 // console.log(skills)
 const skillsModel = model("skills",skills);
