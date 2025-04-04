@@ -3,13 +3,13 @@ import { Schema,model } from "mongoose";
 const jobs = Schema({
     title:{
         type:String,
-        required:true
+        required:true,
     },
     description:{
         type:String,
         required:true
     },
-    skill:{
+    skills:{
         type:[String],
         required:true
     },
@@ -17,17 +17,23 @@ const jobs = Schema({
         type:Number,
         required:true
     },
-    deadLine:{
+    deadline:{
         type:Date,
         required:true
     },
-    staus:String, // dought 
+    staus:{
+        type:String,
+        enum:["onging","vacant","completed"],
+        default:"vacant"
+    }, // dought 
     createdAt:{
         type:Date,
-        required:true
-    }
+        default:Date.now
+    },
+    image:String, //url //set default value
+    imageRatio:String,//dought // set default ratio
 })
 
-const jobModel = model(jobs,"jobs");
+const jobModel = model("jobs",jobs);
 
 export default jobModel;

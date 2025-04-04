@@ -6,17 +6,22 @@ const SECRET = process.env.SECRET
 
 const jwtChecker = async(req,res,next)=>{
     try {
-        const token = req.headers['Authorization']?.split(' ')[1];
+        console.log(req.headers['authorization'])
+        const token = req.headers['authorization']?.split(' ')[1];
+        console.log(token);
         const decode = jwt.verify(token,SECRET);
-        req.users = {
+        console.log(decode)
+        req.user = {
             userName:decode.userName,
-            email:decode.email
+            email:decode.email,
+            _id:decode._id
         }
         const timeLeft = decode.exp - Math.floor(Date.now()/1000);
         if(timeLeft > 60*60){
             const newToken = +jwt.sign({
                 userName:decode.userName,
-                email:decode.email
+                email:decode.email,
+                _id:decode._id
             },SECRET,{expiresIn:'2d'})
             req.header.Authorization = `Bearer ${newToken}`;
         }

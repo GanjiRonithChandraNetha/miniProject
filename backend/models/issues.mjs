@@ -3,7 +3,8 @@ import { Schema,model } from "mongoose";
 const issues = Schema({
     raisedBy:{
         type: Schema.Types.ObjectId,
-        ref:'users'
+        ref:'users',
+        required:true
     },
     description:{
         type:String,
@@ -11,14 +12,22 @@ const issues = Schema({
     },
     type:{
         type:String,
-        enum:[]//should decide
+        enum:["vacant","ongoing","completed"],//should decide
+        default:"vacant"
     },
+    solution:String,
     createdAt:{
         type:Date,
         default:Date.now
+    },
+    solvedAt:Date,
+    jobId:{
+        type:Schema.Types.ObjectId,
+        ref:'jobs',
+        required:true
     }
 })
 
-const issueModel = model(issues,"issues");
+const issueModel = model("issues",issues);
 
 export default issueModel;

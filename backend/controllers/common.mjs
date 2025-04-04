@@ -4,7 +4,8 @@ import skillsModel from '../models/skills.mjs'
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv'
 import jwt  from 'jsonwebtoken'
-import credentialChecker from '../utils/inputChecker.mjs';
+import credentialChecker from '../utils/validaters/signInValidator.mjs';
+import issueModel from '../models/issues.mjs';
 
 dotenv.config();
 
@@ -33,8 +34,6 @@ const signIn = async(req,res)=>{
                 }).status(402);
                 return;
             }
-            const token = jwt.sign({userName:req.body.userName,email:req.body.email},SECRET,{expiresIn:'2d'}) 
-            console.log(token);
             const hashedPassword = await bcrypt.hash(req.body.password,10);
             console.log(hashedPassword)
             const obj = {
@@ -68,6 +67,11 @@ const signIn = async(req,res)=>{
             if(linksArray.length !== 0){
                 const linksReport = await linksModel.insertMany(linksArray);
             }
+            const token = jwt.sign({
+                userName:req.body.userName,
+                email:req.body.email,
+                _id:user._id
+            },SECRET,{expiresIn:'2d'}) 
 
             res.status(200).json({
                 message:"successfully created user",
@@ -110,7 +114,8 @@ const login = async (req,res)=>{
                 const token = jwt.sign(
                     {
                         userName:checker.userName,
-                        email:req.body.email
+                        email:checker.email,
+                        _id:checker._id
                     },
                     SECRET,{expiresIn:'2d'}
                 );
@@ -142,28 +147,30 @@ const getProfile = async(req,res)=>{
         if(!user){
             res.json({message:"user not found"}).status(404);
         }else{
-            links = await linksModel.find({userId:user._id});
-            
-            const linksJson = {};
+            const links = await linksModel.find({userId:user._id});
+            // console.log(links);
+            const linksArr = [];
             for(const obj in links){
-                linksJson[obj.linkKey] = obj.linkValue;
-                linksJson._id = obj._id;
+                const obj1 = {}
+                obj1._id = links[obj]._id
+                obj1[links[obj].linkKey] = links[obj].linkValue
+                linksArr.push(obj1); 
             }
+            // console.log(linksArr);
 
-
-            skills = await skillsModel.find({userId:user._id});
-            
+            const skills = await skillsModel.find({userId:user._id});
+            // console.log(skills)
             const skillsArr = [];
             for(const obj in skills){
                 skillsArr.push({
-                    _id:obj._id,
-                    skill:obj.skill
+                    _id:skills[obj]._id,
+                    skill:skills[obj].skill
                 });
             }
 
             res.json({
                 skills:skillsArr,
-                links:linksJson
+                links:linksArr
             }).status(200);
         }
     } catch (error) {
@@ -175,67 +182,117 @@ const getProfile = async(req,res)=>{
 }
 //nothing its a get reques where data is stored in token
 
-const updateSkills = async(req,res)=>{
-    try {
-        const user = await usersModel.findOne({
-            userName:req.body.userName,
-            email:req.body.email
-        })
-        if(!user){
-            res.json({message:"user not found"}).status(404);
-        }else{
-            //create a transaction
-            await skillsModel.deleteMany({_id:{$in:req.body.deletedIds}});
-            const insertedSkills = [];
-            for(const obj in req.body.insertedSkills){
-                insertedSkills.push({
-                    userId:user._id,
-                    skill:obj
-                });
-            }
-            await skillsModel.insertMany(insertedSkills);
-            //end the transaction
-        }
-    } catch (error) {
-        res.json({
-            message:"failed in making updates in skills",
-            error:error.message
-        }).status(500);
-    }
-}
+// const updateSkills = async(req,res)=>{
+//     try {
+//         const user = await usersModel.findOne({
+//             userName:req.body.userName,
+//             email:req.body.email
+//         })
+//         if(!user){
+//             res.json({message:"user not found"}).status(404);
+//         }else{
+//             //create a transaction
+//             await skillsModel.deleteMany({_id:{$in:req.body.deletedIds}});
+//             const insertedSkills = [];
+//             for(const obj in req.body.insertedSkills){
+//                 insertedSkills.push({
+//                     userId:user._id,
+//                     skill:obj
+//                 });
+//             }
+//             await skillsModel.insertMany(insertedSkills);
+//             //end the transaction
+//         }
+//     } catch (error) {
+//         res.json({
+//             message:"failed in making updates in skills",
+//             error:error.message
+//         }).status(500);
+//     }
+// }
 
 // {
 //     deletedIds:[],
 //     insertedSkills:[skills]
 // }
 
+
+const updateSkills = async(req,res)=>{
+    try{
+        if(req.body.type === "INSERT" && req.body.skill){
+            await skillsModel.create({
+                userId:req.user._id,
+                skill:req.body.skill
+            })
+            res.status(200).json({message:"skill added"});
+        }else if(req.body.skillId && req.body.type === "DELETE"){
+            await skillsModel.deleteOne({_id:req.body.skillId})
+            res.status(200).json({message:"deleted skill"})
+        }else{
+            res.status(400).json({message:"bad request"})
+        }
+    }catch(err){
+        res.status(500).json({
+            message:"skill not updated"
+        })
+    }
+}
+
+// {
+//     type:INSERT || delete,
+//     skill: if delete,
+//     skillID: _id
+// }
+
+// const updateLinks = async(req,res)=>{
+//     try {
+//         const user = await usersModel.findOne({
+//             userName:req.body.userName,
+//             email:req.body.email
+//         })
+//         if(!user){
+//             res.json({message:"user not found"}).status(404);
+//         }else{
+//             const obj1 = req.body.deleteIds;
+//             const obj2 = req.body.linksObject;
+//             if(Array.isArray(obj1) && (obj2 !== null && !Array.isArray(obj2) && typeof obj2 == 'object')){
+//                 // create a transaction 
+//                 await linksModel.deleteMany({_id:{$in:obj1}});
+//                 const linksInstances = [];
+//                 Object.keys(obj2).forEach(key=>{
+//                     linksInstances.push({
+//                         userId:user._id,
+//                         linkKey:key,
+//                         linkValue:req.body.linkObject[key]
+//                     })
+//                 })
+//                 await linksModel.insertMany(linksInstances);
+//                 // end the transaction
+//                 res.status(200).json({message:"links updated"});
+//             }else
+//                 res.status(400).json({message:"worng input"});
+//         }
+//     } catch (error) {
+//         res.status(500).json({
+//             message:"failed in making updates in links",
+//             error:error.message
+//         });
+//     }
+// }
 const updateLinks = async(req,res)=>{
     try {
-        const user = await usersModel.findOne({
-            userName:req.body.userName,
-            email:req.body.email
-        })
-        if(!user){
-            res.json({message:"user not found"}).status(404);
+        if(req.body.type === "DELETE" && req.body.linkId){
+            await linksModel.deleteOne({_id:req.body.linkId})
+            res.status(200).json({message:"data deleted"});
+        }else if(req.body.type === "INSERT" && req.body.linkKey && req.body.linkValue){
+            await linksModel.insertOne({
+                userId:req.user._id,
+                linkKey:req.body.linkKey,
+                linkValue:req.body.linkValue
+            });
+            res.status(200).json({message:"data inserted"})
         }else{
-            const obj1 = req.body.deleteIds;
-            const obj2 = req.body.linksObject;
-            if(Array.isArray(obj1) && (obj2 !== null && !Array.isArray(obj2) && typeof obj2 == 'object')){
-                // create a transaction 
-                await linksModel.deleteMany({_id:{$in:obj1}});
-                const linksInstances = [];
-                Object.keys(obj2).forEach(key=>{
-                    linksInstances.push({
-                        userId:user._id,
-                        linkKey:key,
-                        linkValue:req.body.linkObject[key]
-                    })
-                })
-                await linksModel.insertMany(linksInstances);
-                // end the transaction
-                res.status(200).json({message:"links updated"});
-            }else
-                res.status(400).json({message:"worng input"});
+            res.status(400).json({message:"worng input"});
         }
     } catch (error) {
         res.status(500).json({
@@ -245,4 +302,43 @@ const updateLinks = async(req,res)=>{
     }
 }
 
-export {signIn,login,getProfile,updateSkills,updateLinks};
+// {
+//     type:INSERT || DELETE ,
+//     linkId: for insert,
+//     linkKey:for delete,
+//     linkValue: for delete
+// }
+
+const raiseIssue = async(req,res)=>{
+    try {
+        if(req.body.issue && req.body.jobId){
+            await issueModel.insertOne({
+                raisedBy:req.user._id,
+                description:req.body.issue,
+                jobId:req.body.jobId
+            })
+            res.status(200).json({message:"issue raised"});
+        }else{
+            res.status(400).json({message:"bad request"});
+        }
+    } catch (error) {
+        res.status(500).json({
+            message:"issue not reaised",
+            error:error.message
+        })
+    }
+}
+
+const viewIssue = async(req,res)=>{
+    try {
+        const ans =await issueModel.find({raisedBy:req.user._id});
+        res.status(200).json({data:ans});
+    } catch (error) {
+        res.status(500).json({
+            message:"error in retriving issues",
+            error:error.message
+        })
+    }
+}
+
+export {signIn,login,getProfile,updateSkills,updateLinks,viewIssue,raiseIssue}

@@ -1,4 +1,4 @@
-{
+[{
     "userName":"ronithganji21",
     "email":"ronithganji21062004@gmail.com",
     "password":"₹7386ronith",
@@ -9,4 +9,31 @@
         "github":"https://www.github.com/RonithChandraGanjiNetha",
         "project":"still not deployed check it on github"
     }
-}
+},
+{
+    "userName": "shravan_kumar",
+    "email": "shravan.kumar@example.com",
+    "password": "Shravan@123",
+    "skills": ["frontend", "UI/UX", "react"],
+    "links": {
+        "linkedIn": "https://www.linkedin.com/in/shravankumar/",
+        "instagram": "https://www.instagram.com/shravan_codes/",
+        "github": "https://github.com/shravan-dev",
+        "project": "https://shravan-portfolio.vercel.app"
+    }
+},
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InNocmF2YW5fa3VtYXIiLCJlbWFpbCI6InNocmF2YW4ua3VtYXJAZXhhbXBsZS5jb20iLCJfaWQiOiI2N2YwNDYwYzU1ZGUxNDg3OWE2ODFkODciLCJpYXQiOjE3NDM3OTk4MjAsImV4cCI6MTc0Mzk3MjYyMH0.BF_EjDzb3uHhwsw3IuXtivYvk84eFnv8xGzeszMyK5M"
+},
+{
+    "userName": "ananya_sinha",
+    "email": "ananya.sinha@gmail.com",
+    "password": "Ananya#4321",
+    "skills": ["backend", "nodejs", "database", "cloud"],
+    "links": {
+        "linkedIn": "https://www.linkedin.com/in/ananya-sinha-281/",
+        "instagram": "https://www.instagram.com/ananya.codes/",
+        "github": "https://github.com/ananyasinha",
+        "project": "https://github.com/ananyasinha/ecommerce-api"
+    }
+}]

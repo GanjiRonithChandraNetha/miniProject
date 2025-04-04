@@ -3,7 +3,8 @@ import { Schema,model } from "mongoose";
 const userJobsMaps = Schema({
     jobId:{
         type: Schema.Types.ObjectId,
-        ref:'jobs'
+        ref:'jobs',
+        required:true
     },
     freelancerId:{
         type: Schema.Types.ObjectId,
@@ -11,10 +12,11 @@ const userJobsMaps = Schema({
     },
     employerId:{
         type: Schema.Types.ObjectId,
-        ref:'users'
+        ref:'users',
+        required:true
     }
 });
 
-const userJobsModel = model(userJobsMaps,'userJobsMaps');
+const userJobsModel = model('userJobsMaps',userJobsMaps);
 
 export default userJobsModel;
