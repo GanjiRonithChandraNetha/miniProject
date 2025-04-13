@@ -11,6 +11,6 @@ const jobApplicationsMaps = Schema({
     }
 });
 
-const jobApplicationsmodel = model(jobApplicationsMaps,'jobApplicationsMaps');
+const jobApplicationsmodel = model('jobApplicationsMaps',jobApplicationsMaps);
 
 export default jobApplicationsmodel

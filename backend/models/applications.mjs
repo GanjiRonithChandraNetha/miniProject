@@ -1,15 +1,22 @@
 import { Schema,model } from "mongoose";
 
 const applicatons = Schema({
-    bidAmount:Number,
-    cover_letter:String, //dought
-    status:String,
-    createdAt:{
-        type:Date,
+    bidAmount:{
+        type:Number,
         required:true
+    },
+    coverLetter:{
+        type:String,
+        required:true
+    }, //dought
+    status:{
+        type:String,
+        default:"draft",
+        enum:["draft","published","appointed","rejected","selected","ready"]
     }
-})
+},
+{timestamps:true});
 
-const applicatonModel = model(applicatons,"appplications");
+const applicationModel = model("applications",applicatons);
 
-export default applicatonModel;
+export default applicationModel;

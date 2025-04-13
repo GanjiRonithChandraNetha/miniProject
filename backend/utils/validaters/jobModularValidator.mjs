@@ -1,8 +1,8 @@
-import jobCredentialChecker from "./jobValidator.mjs";
+import {jobInput} from "./jobValidator.mjs";
 
 const jobModularChecker = (field, value) => {
-    const schema = jobCredentialChecker.shape[field];
-    if (!schema) {
+    const schema = jobInput.shape[field];
+    if (!schema || field == 'createdAt') {
         return {
             success: false,
             error: "Invalid field"

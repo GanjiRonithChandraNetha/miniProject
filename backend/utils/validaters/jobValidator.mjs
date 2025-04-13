@@ -12,4 +12,5 @@ const jobInput = object({
     imageRatio:string().regex(/[^\d+:\d+$]/,"enter approprieate dimentions").optional()
 })
 const jobCredentialChecker = obj=>jobInput.safeParse(obj)
-export default jobCredentialChecker
+export default jobCredentialChecker;
+export {jobInput};

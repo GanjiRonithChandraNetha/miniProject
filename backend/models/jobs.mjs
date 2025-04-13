@@ -21,7 +21,7 @@ const jobs = Schema({
         type:Date,
         required:true
     },
-    staus:{
+    status:{
         type:String,
         enum:["onging","vacant","completed"],
         default:"vacant"

@@ -1,7 +1,7 @@
 import { Schema,model } from "mongoose";
 
 const userApplicationsMaps = Schema({
-    userId:{
+    freelancerId:{
         type:Schema.Types.ObjectId,
         ref:'users'
     },
@@ -11,6 +11,6 @@ const userApplicationsMaps = Schema({
     }
 });
 
-const userApplicationsModel = model(userApplicationsMaps,'userApplicationsMaps');
+const userApplicationsModel = model('userApplicationsMaps',userApplicationsMaps);
 
 export default userApplicationsModel;

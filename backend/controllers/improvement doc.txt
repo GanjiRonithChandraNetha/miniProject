@@ -1,0 +1,32 @@
+./employer.mjs
+sendAgreement
+
+- replace this code for more effeicent code 
+
+      // Add these optimizations for very large datasets
+      const batchSize = 1000; // Adjust based on your document size
+
+      const cursor = jobApplicationsmodel
+        .find({ jobId }, { applicationId: 1 })
+        .lean()
+        .cursor({ batchSize });
+
+      const bulkSelected = applicationModel.collection.initializeUnorderedBulkOp();
+      const bulkRejected = applicationModel.collection.initializeUnorderedBulkOp();
+
+      for await (const doc of cursor) {
+        const isSelected = selectedSet.has(doc.applicationId.toString());
+        const bulkOp = isSelected ? bulkSelected : bulkRejected;
+        
+        bulkOp.find({ _id: doc.applicationId }).updateOne({
+          $set: { status: isSelected ? "selected" : "rejected" }
+        });
+      }
+
+      await Promise.all([
+        bulkSelected.length > 0 ? bulkSelected.execute() : Promise.resolve(),
+        bulkRejected.length > 0 ? bulkRejected.execute() : Promise.resolve()
+      ]);
+
+
+- delete agreements after rejection after some time fixed time
