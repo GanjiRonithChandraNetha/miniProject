@@ -1,0 +1,25 @@
+link : localhost:3636/v1/application/profile/update/skill
+
+example 1
+input
+{
+    "type":"DELETE",
+    "skillId":"67fcabba6d8d02d21351fcae"
+}
+
+out put
+{
+    "message": "deleted skill"
+}
+
+
+example 2
+input
+{
+    "type":"INSERT",
+    "skill":"AI-ENGINEER"
+}
+output
+{
+    "message": "skill added"
+}

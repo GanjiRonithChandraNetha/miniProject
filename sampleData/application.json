@@ -1,0 +1,65 @@
+{
+    "Blockchain Developer - Smart Contracts":
+    [
+        {
+            "bidAmount": 350000,
+            "coverLetter": "Priya Rai\n[Phone: +91 9876543210]\n[Email: priya.rai@example.com]\n[LinkedIn: https://www.linkedin.com/in/priyarai-dev/]\n[GitHub: https://github.com/priyarai-ds]\n[Portfolio: https://priyarai-ml-projects.streamlit.app]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for Data Scientist Position\n\nDear Hiring Manager,\n\nI am thrilled to apply for the Data Scientist position at [Company Name]. With a robust background in machine learning, data analysis, and Python programming, I am eager to contribute my expertise to uncover insights and drive data-driven decisions within your team.\n\nThroughout my career, I have developed end-to-end machine learning pipelines, worked on predictive modeling, and created visualization dashboards. My hands-on experience with Python libraries like Pandas, NumPy, and Scikit-Learn, paired with my proficiency in deploying models via Streamlit and Flask, equips me to deliver impactful solutions.\n\nI look forward to discussing how my passion for data and problem-solving can add value to your organization.\n\nThank you for considering my application.\n\nWarm regards,\nPriya Rai\n[Phone: +91 9876543210] | [Email: priya.rai@example.com]"
+        },
+        {
+            "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InByaXlhX3JhaSIsImVtYWlsIjoicHJpeWEucmFpQGV4YW1wbGUuY29tIiwiX2lkIjoiNjdmY2E2NWFiNGJkNzk0YTg3Yjc3NjZhIiwiaWF0IjoxNzQ0NjEwOTA2LCJleHAiOjE3NDQ3ODM3MDZ9.skW7y5qFZW82OyDBmNTcFyyBenn4JP5yobzuYf6ZUc4"
+        },
+        {
+            "bidAmount": 280000,
+            "coverLetter": "Amit Verma\n[Phone: +91 9876549876]\n[Email: amit.verma@example.com]\n[LinkedIn: https://www.linkedin.com/in/amitverma/]\n[GitHub: https://github.com/amitverma-android]\n[Portfolio: https://play.google.com/store/apps/details?id=com.amit.todoapp]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for Android Developer Position\n\nDear Hiring Manager,\n\nI am excited to apply for the Android Developer position at [Company Name]. With expertise in Kotlin, Java, and UI/UX design, I have a proven track record of delivering user-friendly and visually appealing mobile applications.\n\nNotably, I recently launched a to-do app on the Google Play Store that garnered 10,000+ downloads within its first three months. My ability to transform user requirements into functional applications, coupled with my dedication to ensuring seamless user experiences, makes me confident in my ability to exceed expectations in this role.\n\nThank you for considering my application. I am eager to bring my skills to your esteemed organization and contribute to its success.\n\nWarm regards,\nAmit Verma\n[Phone: +91 9876549876] | [Email: amit.verma@example.com]"
+        },
+        {
+            "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFtaXRfdmVybWEiLCJlbWFpbCI6ImFtaXQudmVybWFAZXhhbXBsZS5jb20iLCJfaWQiOiI2N2ZjYTY3NWI0YmQ3OTRhODdiNzc2NzYiLCJpYXQiOjE3NDQ2MTA5MzMsImV4cCI6MTc0NDc4MzczM30.DiLPJj0kNBuLAksL5V4N-Uybho7zueaVnxHppiK4PdM"
+        },
+        {
+            "bidAmount": 320000,
+            "coverLetter": "Shravan Kumar\n[Phone: +91 9123456789]\n[Email: shravan.kumar@example.com]\n[LinkedIn: https://www.linkedin.com/in/shravankumar/]\n[GitHub: https://github.com/shravan-dev]\n[Portfolio: https://shravan-portfolio.vercel.app]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for Frontend Developer Position\n\nDear Hiring Manager,\n\nI am writing to express my interest in the Frontend Developer position at [Company Name]. With a strong foundation in React.js, UI/UX design, and responsive development, I am passionate about crafting interactive and visually appealing web applications.\n\nMy portfolio showcases a range of projects that demonstrate my ability to translate complex user needs into seamless designs. I am confident that my technical skills and eye for design will make a positive impact on your team.\n\nThank you for considering my application. I look forward to the opportunity to contribute to your projects and bring your visions to life.\n\nWarm regards,\nShravan Kumar\n[Phone: +91 9123456789] | [Email: shravan.kumar@example.com]"
+        },
+        {
+            "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InNocmF2YW5fa3VtYXIiLCJlbWFpbCI6InNocmF2YW4ua3VtYXJAZXhhbXBsZS5jb20iLCJfaWQiOiI2N2ZjYTVkMmI0YmQ3OTRhODdiNzc2NTEiLCJpYXQiOjE3NDQ2MTA3NzAsImV4cCI6MTc0NDc4MzU3MH0.dvqOoaTbB_wCqnvFByhAYcQ3jvUKG2jR1tIhgaWTaVs"
+        },
+        {
+            "bidAmount": 310000,
+            "coverLetter": "Ananya Sinha\n[Phone: +91 9876541230]\n[Email: ananya.sinha@gmail.com]\n[LinkedIn: https://www.linkedin.com/in/ananya-sinha-281/]\n[GitHub: https://github.com/ananyasinha]\n[Portfolio: https://github.com/ananyasinha/ecommerce-api]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for Backend Developer Position\n\nDear Hiring Manager,\n\nI am writing to apply for the Backend Developer position at [Company Name]. With a specialization in building scalable backend systems using Node.js and database management with MongoDB and MySQL, I am eager to contribute to the development of high-performance applications.\n\nDuring my academic and professional journey, I have successfully implemented APIs, optimized database queries, and integrated cloud-based solutions to enhance application efficiency. I am committed to delivering backend solutions that support seamless user experiences.\n\nThank you for considering my application. I look forward to the opportunity to contribute my skills to your team.\n\nWarm regards,\nAnanya Sinha\n[Phone: +91 9876541230] | [Email: ananya.sinha@gmail.com]"
+        },
+        {
+            "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFuYW55YV9zaW5oYSIsImVtYWlsIjoiYW5hbnlhLnNpbmhhQGdtYWlsLmNvbSIsIl9pZCI6IjY3ZmNhNjNlYjRiZDc5NGE4N2I3NzY1ZCIsImlhdCI6MTc0NDYxMDg3OCwiZXhwIjoxNzQ0NzgzNjc4fQ.nk3unD-dKwrHn1g_RRuF3yASWRrz_lGlGGjiiAJgOeg"
+        }
+    ],
+
+    "AI-Powered Chatbot Developer":
+    [
+        {
+            "bidAmount": 230000,
+            "coverLetter": "Shravan Kumar\n[Phone: +91 9123456789]\n[Email: shravan.kumar@example.com]\n[LinkedIn: https://www.linkedin.com/in/shravankumar/]\n[GitHub: https://github.com/shravan-dev]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for AI-Powered Chatbot Developer Position\n\nDear Hiring Manager,\n\nI am thrilled to apply for the AI-Powered Chatbot Developer role at [Company Name]. As a skilled frontend and UI/UX developer with a growing interest in AI and chatbot development, I am eager to leverage my expertise to build conversational interfaces that prioritize user experience.\n\nMy proficiency in React.js and collaboration with backend teams has provided me with insights into seamless integration of AI-driven functionalities. I am particularly drawn to this opportunity to work on cutting-edge AI technologies and contribute to enhancing user interactions.\n\nThank you for considering my application. I look forward to the opportunity to contribute my skills and enthusiasm to your team.\n\nWarm regards,\nShravan Kumar\n[Phone: +91 9123456789] | [Email: shravan.kumar@example.com]"
+        },
+        {
+            "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InNocmF2YW5fa3VtYXIiLCJlbWFpbCI6InNocmF2YW4ua3VtYXJAZXhhbXBsZS5jb20iLCJfaWQiOiI2N2ZjYTVkMmI0YmQ3OTRhODdiNzc2NTEiLCJpYXQiOjE3NDQ2MTA3NzAsImV4cCI6MTc0NDc4MzU3MH0.dvqOoaTbB_wCqnvFByhAYcQ3jvUKG2jR1tIhgaWTaVs"
+        },
+        {
+            "bidAmount": 260000,
+            "coverLetter": "Ananya Sinha\n[Phone: +91 9876541230]\n[Email: ananya.sinha@gmail.com]\n[LinkedIn: https://www.linkedin.com/in/ananya-sinha-281/]\n[GitHub: https://github.com/ananyasinha]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for AI-Powered Chatbot Developer Position\n\nDear Hiring Manager,\n\nI am excited to apply for the AI-Powered Chatbot Developer position at [Company Name]. With a strong background in backend development and expertise in database management, I am confident in my ability to build and optimize scalable chatbot systems.\n\nMy experience with Node.js, Python, and machine learning models has enabled me to implement intelligent solutions that enhance user interactions. I am particularly skilled in integrating AI functionalities into robust backend systems and ensuring their security and efficiency.\n\nThank you for considering my application. I am eager to bring my technical skills and dedication to your team.\n\nWarm regards,\nAnanya Sinha\n[Phone: +91 9876541230] | [Email: ananya.sinha@gmail.com]"
+        },
+        {
+            "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFuYW55YV9zaW5oYSIsImVtYWlsIjoiYW5hbnlhLnNpbmhhQGdtYWlsLmNvbSIsIl9pZCI6IjY3ZmNhNjNlYjRiZDc5NGE4N2I3NzY1ZCIsImlhdCI6MTc0NDYxMDg3OCwiZXhwIjoxNzQ0NzgzNjc4fQ.nk3unD-dKwrHn1g_RRuF3yASWRrz_lGlGGjiiAJgOeg"
+        },
+        {
+            "bidAmount": 250000,
+            "coverLetter": "Priya Rai\n[Phone: +91 9876543210]\n[Email: priya.rai@example.com]\n[LinkedIn: https://www.linkedin.com/in/priyarai-dev/]\n[GitHub: https://github.com/priyarai-ds]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for AI-Powered Chatbot Developer Position\n\nDear Hiring Manager,\n\nI am writing to express my interest in the AI-Powered Chatbot Developer position at [Company Name]. With expertise in Python, machine learning, and NLP, I have developed data-driven models and AI solutions that enhance user experiences.\n\nMy experience includes designing conversational agents using OpenAI APIs and TensorFlow, with a focus on performance optimization and seamless integration. I am eager to contribute my analytical skills and passion for AI to create impactful chatbot solutions for your organization.\n\nThank you for considering my application. I look forward to discussing how I can contribute to your team.\n\nWarm regards,\nPriya Rai\n[Phone: +91 9876543210] | [Email: priya.rai@example.com]"
+        },
+        {
+            "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InByaXlhX3JhaSIsImVtYWlsIjoicHJpeWEucmFpQGV4YW1wbGUuY29tIiwiX2lkIjoiNjdmY2E2NWFiNGJkNzk0YTg3Yjc3NjZhIiwiaWF0IjoxNzQ0NjEwOTA2LCJleHAiOjE3NDQ3ODM3MDZ9.skW7y5qFZW82OyDBmNTcFyyBenn4JP5yobzuYf6ZUc4"
+        },
+        {
+            "bidAmount": 240000,
+            "coverLetter": "Amit Verma\n[Phone: +91 9876532100]\n[Email: amit.verma@example.com]\n[LinkedIn: https://www.linkedin.com/in/amitverma/]\n[GitHub: https://github.com/amitverma-android]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for AI-Powered Chatbot Developer Position\n\nDear Hiring Manager,\n\nI am excited to apply for the AI-Powered Chatbot Developer position at [Company Name]. With a strong foundation in mobile and web development, coupled with my experience in integrating AI solutions, I am confident in my ability to contribute effectively to your team.\n\nDuring my career, I have developed applications that combine advanced functionalities with user-centric designs. My technical expertise includes:\n\n- Proficiency in **Node.js**, **Python**, and chatbot frameworks like **Dialogflow** and **OpenAI APIs**.\n- Experience with integrating AI functionalities into mobile and web applications.\n- Strong understanding of **UI/UX design principles**, ensuring a seamless user experience for conversational agents.\n- Familiarity with database management (MongoDB, MySQL) and deployment strategies using **AWS**.\n\nI am particularly drawn to this role because it aligns with my passion for designing intelligent chatbot solutions that enhance user interactions and streamline processes. My commitment to innovation and problem-solving makes me eager to bring value to your organization.\n\nThank you for considering my application. I look forward to discussing how I can contribute to your mission of delivering impactful AI-driven solutions.\n\nWarm regards,\nAmit Verma\n[Phone: +91 9876532100] | [Email: amit.verma@example.com]"
+        },
+        {
+            "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFtaXRfdmVybWEiLCJlbWFpbCI6ImFtaXQudmVybWFAZXhhbXBsZS5jb20iLCJfaWQiOiI2N2ZjYTY3NWI0YmQ3OTRhODdiNzc2NzYiLCJpYXQiOjE3NDQ2MTA5MzMsImV4cCI6MTc0NDc4MzczM30.DiLPJj0kNBuLAksL5V4N-Uybho7zueaVnxHppiK4PdM"
+        }        
+    ]
+}

@@ -1,39 +1,92 @@
-[{
-    "userName":"ronithganji21",
-    "email":"ronithganji21062004@gmail.com",
-    "password":"₹7386ronith",
-    "skills":["web-developer","devops","fullstack"],
-    "links":{
-        "linkedIn":"https://www.linkedin.com/in/ronith-ganji-023093301/",
-        "instagram":"https://www.instagram.com/ronith_chandra/",
-        "github":"https://www.github.com/RonithChandraGanjiNetha",
-        "project":"still not deployed check it on github"
+[
+    {
+        "userName": "ronithganji",
+        "email": "ronithganji21062004@gmail.com",
+        "password": "₹7386Ronith!",
+        "skills": ["web-developer", "devops", "fullstack"],
+        "links": {
+            "linkedIn": "https://www.linkedin.com/in/ronith-ganji-023093301/",
+            "instagram": "https://www.instagram.com/ronith_chandra/",
+            "github": "https://www.github.com/RonithChandraGanjiNetha",
+            "project": "still not deployed check it on github"
+        }
+    },
+    {
+        "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InJvbml0aGdhbmppIiwiZW1haWwiOiJyb25pdGhnYW5qaTIxMDYyMDA0QGdtYWlsLmNvbSIsIl9pZCI6IjY3ZmNhNWE2YjRiZDc5NGE4N2I3NzY0NSIsImlhdCI6MTc0NDYxMDcyNiwiZXhwIjoxNzQ0NzgzNTI2fQ.SGd8UOl-KEAaG3aq9vvECLcFSQmQRb2JSZg4tWgYha4"
+    },
+    {
+        "userName": "shravan_kumar",
+        "email": "shravan.kumar@example.com",
+        "password": "Shravan@123",
+        "skills": ["frontend", "UI/UX", "react"],
+        "links": {
+            "linkedIn": "https://www.linkedin.com/in/shravankumar/",
+            "instagram": "https://www.instagram.com/shravan_codes/",
+            "github": "https://github.com/shravan-dev",
+            "project": "https://shravan-portfolio.vercel.app"
+        }
+    },
+    {
+        "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InNocmF2YW5fa3VtYXIiLCJlbWFpbCI6InNocmF2YW4ua3VtYXJAZXhhbXBsZS5jb20iLCJfaWQiOiI2N2ZjYTVkMmI0YmQ3OTRhODdiNzc2NTEiLCJpYXQiOjE3NDQ2MTA3NzAsImV4cCI6MTc0NDc4MzU3MH0.dvqOoaTbB_wCqnvFByhAYcQ3jvUKG2jR1tIhgaWTaVs"
+    },
+    {
+        "userName": "ananya_sinha",
+        "email": "ananya.sinha@gmail.com",
+        "password": "Ananya#4321",
+        "skills": ["backend", "nodejs", "database", "cloud"],
+        "links": {
+            "linkedIn": "https://www.linkedin.com/in/ananya-sinha-281/",
+            "instagram": "https://www.instagram.com/ananya.codes/",
+            "github": "https://github.com/ananyasinha",
+            "project": "https://github.com/ananyasinha/ecommerce-api"
+        }
+    },
+    {
+        "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFuYW55YV9zaW5oYSIsImVtYWlsIjoiYW5hbnlhLnNpbmhhQGdtYWlsLmNvbSIsIl9pZCI6IjY3ZmNhNjNlYjRiZDc5NGE4N2I3NzY1ZCIsImlhdCI6MTc0NDYxMDg3OCwiZXhwIjoxNzQ0NzgzNjc4fQ.nk3unD-dKwrHn1g_RRuF3yASWRrz_lGlGGjiiAJgOeg"
+    },
+    {
+        "userName": "priya_rai",
+        "email": "priya.rai@example.com",
+        "password": "Priya@Dev123",
+        "skills": ["data scientist", "machine learning", "python"],
+        "links": {
+            "linkedIn": "https://www.linkedin.com/in/priyarai-dev/",
+            "instagram": "https://www.instagram.com/priya.data/",
+            "github": "https://github.com/priyarai-ds",
+            "project": "https://priyarai-ml-projects.streamlit.app"
+        }
+    },
+    {
+        "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InByaXlhX3JhaSIsImVtYWlsIjoicHJpeWEucmFpQGV4YW1wbGUuY29tIiwiX2lkIjoiNjdmY2E2NWFiNGJkNzk0YTg3Yjc3NjZhIiwiaWF0IjoxNzQ0NjEwOTA2LCJleHAiOjE3NDQ3ODM3MDZ9.skW7y5qFZW82OyDBmNTcFyyBenn4JP5yobzuYf6ZUc4"
+    },
+    {
+        "userName": "amit_verma",
+        "email": "amit.verma@example.com",
+        "password": "Amit$Coder21",
+        "skills": ["android development", "kotlin", "java", "UI/UX"],
+        "links": {
+            "linkedIn": "https://www.linkedin.com/in/amitverma/",
+            "instagram": "https://www.instagram.com/amit.dev/",
+            "github": "https://github.com/amitverma-android",
+            "project": "https://play.google.com/store/apps/details?id=com.amit.todoapp"
+        }
+    },
+    {
+        "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFtaXRfdmVybWEiLCJlbWFpbCI6ImFtaXQudmVybWFAZXhhbXBsZS5jb20iLCJfaWQiOiI2N2ZjYTY3NWI0YmQ3OTRhODdiNzc2NzYiLCJpYXQiOjE3NDQ2MTA5MzMsImV4cCI6MTc0NDc4MzczM30.DiLPJj0kNBuLAksL5V4N-Uybho7zueaVnxHppiK4PdM"
+    },
+    {
+        "userName": "zoya_khan",
+        "email": "zoya.khan@example.com",
+        "password": "Zoya@Pro2024",
+        "skills": ["cybersecurity", "ethical hacking", "penetration testing"],
+        "links": {
+            "linkedIn": "https://www.linkedin.com/in/zoya-khan-security/",
+            "instagram": "https://www.instagram.com/zoya.secure/",
+            "github": "https://github.com/zoyakhan-sec",
+            "project": "https://zoya-security-tools.com"
+        }
+    },
+    {
+        "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InpveWFfa2hhbiIsImVtYWlsIjoiem95YS5raGFuQGV4YW1wbGUuY29tIiwiX2lkIjoiNjdmY2E2OGRiNGJkNzk0YTg3Yjc3NjgzIiwiaWF0IjoxNzQ0NjEwOTU3LCJleHAiOjE3NDQ3ODM3NTd9.snhz8IEAzA_x5iqq8Bb5QB_ldD_A-T6dV6UjLn-tp6A"
     }
-},
-{
-    "userName": "shravan_kumar",
-    "email": "shravan.kumar@example.com",
-    "password": "Shravan@123",
-    "skills": ["frontend", "UI/UX", "react"],
-    "links": {
-        "linkedIn": "https://www.linkedin.com/in/shravankumar/",
-        "instagram": "https://www.instagram.com/shravan_codes/",
-        "github": "https://github.com/shravan-dev",
-        "project": "https://shravan-portfolio.vercel.app"
-    }
-},
-{
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InNocmF2YW5fa3VtYXIiLCJlbWFpbCI6InNocmF2YW4ua3VtYXJAZXhhbXBsZS5jb20iLCJfaWQiOiI2N2YwNDYwYzU1ZGUxNDg3OWE2ODFkODciLCJpYXQiOjE3NDM3OTk4MjAsImV4cCI6MTc0Mzk3MjYyMH0.BF_EjDzb3uHhwsw3IuXtivYvk84eFnv8xGzeszMyK5M"
-},
-{
-    "userName": "ananya_sinha",
-    "email": "ananya.sinha@gmail.com",
-    "password": "Ananya#4321",
-    "skills": ["backend", "nodejs", "database", "cloud"],
-    "links": {
-        "linkedIn": "https://www.linkedin.com/in/ananya-sinha-281/",
-        "instagram": "https://www.instagram.com/ananya.codes/",
-        "github": "https://github.com/ananyasinha",
-        "project": "https://github.com/ananyasinha/ecommerce-api"
-    }
-}]
+]

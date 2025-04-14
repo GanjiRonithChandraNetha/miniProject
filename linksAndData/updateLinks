@@ -1,0 +1,16 @@
+localhost:3636/v1/application/profile/update/link
+{
+    "type":"DELETE",     
+    "linkId":"67fcad5d6d8d02d21351fcb6"
+}
+{
+    "message": "data deleted"
+}
+{
+    "type":"INSERT",
+    "linkKey":"linkedIn",
+    "linkValue":"https://www.instagram.com/ronith_chandra/"
+}
+{
+    "message": "data inserted"
+}

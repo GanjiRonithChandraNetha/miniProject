@@ -1,0 +1,39 @@
+links: localhost:3636/v1/application/profile
+example
+{
+    "username": "ronithganji",
+    "email": "ronithganji21062004@gmail.com",
+    "profile": {},
+    "skills": [
+        {
+            "_id": "67fca5a6b4bd794a87b77647",
+            "skill": "web-developer"
+        },
+        {
+            "_id": "67fca5a6b4bd794a87b77648",
+            "skill": "devops"
+        },
+        {
+            "_id": "67fca5a6b4bd794a87b77649",
+            "skill": "fullstack"
+        }
+    ],
+    "links": [
+        {
+            "_id": "67fca5a6b4bd794a87b7764b",
+            "linkedIn": "https://www.linkedin.com/in/ronith-ganji-023093301/"
+        },
+        {
+            "_id": "67fca5a6b4bd794a87b7764c",
+            "instagram": "https://www.instagram.com/ronith_chandra/"
+        },
+        {
+            "_id": "67fca5a6b4bd794a87b7764d",
+            "github": "https://www.github.com/RonithChandraGanjiNetha"
+        },
+        {
+            "_id": "67fca5a6b4bd794a87b7764e",
+            "project": "still not deployed check it on github"
+        }
+    ]
+}
