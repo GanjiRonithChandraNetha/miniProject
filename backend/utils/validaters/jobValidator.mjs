@@ -6,7 +6,7 @@ const jobInput = object({
     skills:array(string()),
     budget:number(),
     deadline:date(),
-    status:zEnum(["onging","vacant","completed"]),
+    status:zEnum(["ongoing","vacant","completed"]),
     createdAt:date().optional(),
     image:string().url("invalid url provided").optional(),
     imageRatio:string().regex(/[^\d+:\d+$]/,"enter approprieate dimentions").optional()

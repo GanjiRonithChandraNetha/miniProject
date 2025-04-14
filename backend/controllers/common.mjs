@@ -169,6 +169,9 @@ const getProfile = async(req,res)=>{
             }
 
             res.json({
+                username:user.userName,
+                email:user.email,
+                profile:user.profilePic,
                 skills:skillsArr,
                 links:linksArr
             }).status(200);

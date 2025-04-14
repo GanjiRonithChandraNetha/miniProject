@@ -3,9 +3,10 @@ import jobCredentialChecker from "../utils/validaters/jobValidator.mjs";
 import userJobsModel from "../models/maps/userJobMap.mjs";
 import jobApplicationsmodel from "../models/maps/jobApplicationMap.mjs";
 import applicationModel from "../models/applications.mjs";
+import userApplicationsModel from "../models/maps/userApplicationMap.mjs"
 import mongoose from "mongoose";
-import jobSet from "../data/jobFields.mjs";
 import jobModularChecker from "../utils/validaters/jobModularValidator.mjs";
+import { application } from "express";
 
 const createJob = async(req,res)=>{
     try {
@@ -112,34 +113,41 @@ const viewJobs = async(req,res)=>{
 
 const updateJob = async(req,res)=>{
     try {
+        const {jobId,data} = req.body;
+
+        if (!jobId || !data || Array.isArray(data)) {
+            res.status(400).json({message:"bad request"})
+        }
+
         if(req.body.data.deadline){
             req.body.data.deadline = new Date(req.body.data.deadline)
         }
-        if(req.body.jobId && req.body.data && !Array.isArray(req.body.data)){
-            for(const key of Object.keys(req.body.data)){
-                const obj = jobModularChecker(key,req.body.data[key])
-                if(!obj.success){
-                    return res.status(401).json({
-                        message:"in compatable data sent",
-                        error:obj.error
-                    });
-                }
+
+        for (const [key, value] of Object.entries(data)) {
+            const obj = jobModularChecker(key, value);
+            if (!obj.success) {
+                return res.status(401).json({
+                    message: "Incompatible data sent",
+                    error: obj.error,
+                });
             }
-            const jobs = await userJobsModel.findOne({jobId:req.body.jobId});
-            if(!jobs)
-                res.status(400).json({message:"no job found"})
-            else if(jobs.freelancerId)
-                res.status(400).json({
-                    message:"job can not be edited after an aggrement"
-                })
-            else{
-                await jobModel.updateOne({_id:req.body.jobId},{$set:req.body.data})
-                res.status(200).json({message:"data updated"})
-            }
-        }else
-            res.status(400).json({
-                message:"bad request"
-            })
+        }
+        
+        const jobs = await userJobsModel.findOne({jobId:jobId});
+        if(!jobs)
+            res.status(400).json({message:"no job found"})
+
+        else if(jobs.freelancerId)
+            res.status(400).json({message:"job can not be edited after an aggrement"})
+            
+        else{
+            await jobModel.updateOne({_id:req.body.jobId},{$set:req.body.data})
+            // console.log(res);
+            if(req.updatePromises)
+                await Promise.all(req.updatePromises);
+            res.status(200).json({message:"data updated"})
+        }
+            
     } catch (error) {
         res.status(500).json({
             message:"internal server error",
@@ -162,7 +170,7 @@ const getApplicantsByJob = async(req,res)=>{
         const applicants = await jobApplicationsmodel.aggregate([
             {
                 $match:{
-                    jobId:mongoose.Types.ObjectId(req.body.jobId)
+                    jobId:new mongoose.Types.ObjectId(req.body.jobId)
                 }
             },
             {
@@ -174,8 +182,11 @@ const getApplicantsByJob = async(req,res)=>{
                 }
             },
             {
+                $unwind:"$applicationDetails"
+            },
+            {
                 $lookup:{
-                    from:'usersapplicationmap',
+                    from:'userapplicationsmaps',
                     localField:"applicationId",
                     foreignField:"applicationId",
                     as:'userMap'
@@ -198,7 +209,7 @@ const getApplicantsByJob = async(req,res)=>{
             {
                 $lookup:{
                     from:"skills",
-                    localField:"userDetails._id",
+                    localField:"userMap.freelancerId",
                     foreignField:"userId",
                     as:"skillsArr"
                 }
@@ -216,16 +227,35 @@ const getApplicantsByJob = async(req,res)=>{
                     _id:1,
                     jobId:1,
                     applicationId:1,
-                    applicationDetails:"$applicationDetails",
-                    userDetails:"$userDetails",
-                    userSkills:"$skillsArr",
-                    links:links
+                    applicationDetails:{
+                        bidAmount:"$applicationDetails.bidAmount",
+                        coverLetter:"$applicationDetails.coverLetter",
+                        status:"$applicationDetails.status"
+                    },
+                    userDetails:{
+                        username:"$userDetails.userName",
+                        email:"$userDetails.email",
+                        profilePic:"$userDetails.profilePic"
+                    },
+                    userSkills:["$skillsArr.skill"],
+                    links:{
+                        $map:{
+                            input:"$links",
+                            as:"link",
+                            in:{
+                                key:"$$link.linkKey",
+                                value:"$$link.linkValue"
+                            }
+                        }
+                    }
                 }
             }
         ])
-        applicants.filter(ele => applicants.applicationDetails.status !== "draft")
-        res.status(200).json(applicants);
+        const ans = applicants.filter(ele => ele.applicationDetails.status !== "draft")
+        res.status(200).json(ans);
+
     } catch (error) {
+        console.log(error)
         res.status(500).json({
             message:"internal server error",
             error:error.message
@@ -240,13 +270,16 @@ const sendAgreement = async(req,res)=>{
         const jobApps = await jobApplicationsmodel.find({ jobId }).distinct('applicationId');
 
         // Convert to ObjectId for comparison
-        const selectedIds = selected.map(id => mongoose.Types.ObjectId(id));
+        const selectedIds = selected.map(id => new mongoose.Types.ObjectId(id));
 
         // Update all in two operations (still more efficient than individual updates)
         await applicationModel.updateMany(
             { 
-                _id: { $in: jobApps },
-                _id: { $in: selectedIds }
+                $and:[
+                    {_id: { $in: jobApps }},
+                    {_id: { $in: selectedIds }},
+                    {status:{$ne:"draft"}}
+                ]
             },
             { $set: { status: "selected" } }
         );
@@ -254,7 +287,10 @@ const sendAgreement = async(req,res)=>{
         await applicationModel.updateMany(
             { 
                 _id: { $in: jobApps },
-                _id: { $nin: selectedIds }
+                $or:[
+                    {_id: { $nin: selectedIds }},
+                    {status:"draft"}
+                ]
             },
             { $set: { status: "rejected" } }
         );
@@ -298,10 +334,13 @@ const sendAgreement = async(req,res)=>{
 
 const viewAgreed = async(req,res)=>{
     try {
+        const {jobId} = req.body;
+        if(!jobId)
+            return res.status(400).json({message:"incomplete data sent"})
         const agreedApplicants = await jobApplicationsmodel.aggregate([
             {
                 $match:{
-                    jobId:mongoose.Types.ObjectId(req.body.jobId)
+                    jobId:new mongoose.Types.ObjectId(jobId)
                 }
             },
             {
@@ -369,6 +408,7 @@ const viewAgreed = async(req,res)=>{
                     coverLetter: "$applicationDetails.coverLetter",
                     userName: "$userDetails.userName",
                     email: "$userDetails.email",
+                    profilePic:"$userDetails.profilePic",
                     skills: "$skills.skill",
                     links: { 
                       key: "$links.linkKey",
@@ -377,8 +417,71 @@ const viewAgreed = async(req,res)=>{
                 }
             }
         ])
+        console.log(agreedApplicants);
+        res.status(200).json({agreedApplicants})
     } catch (error) {
-        
+        res.status(500).json({
+            message:"internal server error",
+            error:error.message
+        })
     }
 }
-export {createJob,viewJobs,updateJob,getApplicantsByJob};
+
+const proviedProject = async(req,res)=>{
+    try {
+        const {jobId,applicationId} = req.body;
+        if(!jobId || !applicationId)
+            return res.status(400).json({message:"incomple paramenters sent"})
+        
+        const applications = await jobApplicationsmodel.find({jobId:jobId})
+         
+        const updatePromises =[            
+            applicationModel.updateMany(
+                {
+                    $and:[
+                        {_id:{$in:[applications.applicationId]}},
+                        {_id:{$ne:applicationId}}
+                    ]
+                },
+                {$set:{status:"rejected"}}
+            ),
+            applicationModel.updateOne(
+                {_id:applicationId},
+                {$set:{status:"appointed"}}
+            )
+        ]
+        
+        const freelancer = await userApplicationsModel.findOne({applicationId:applicationId})
+        if (!freelancer) {
+            return res.status(400).json({message: "Freelancer not found" });
+        }
+        console.log(freelancer.freelancerId);
+        updatePromises.push(
+            userJobsModel.updateOne(
+                {jobId:jobId},
+                {$set:{freelancerId:freelancer.freelancerId}}
+            )
+        );
+
+        // await Promise.all(updatePromises);
+        req.updatePromises = updatePromises
+        req.body.data={status:"ongoing"}
+        
+        updateJob(req,res);
+    } catch (error) {
+        res.status(500).json({
+            message:"internal server error",
+            error:error.message
+        })
+    }
+}
+
+export {
+    createJob,
+    viewJobs,
+    updateJob,
+    getApplicantsByJob,
+    sendAgreement,
+    viewAgreed,
+    proviedProject
+};

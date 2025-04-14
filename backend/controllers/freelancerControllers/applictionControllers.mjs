@@ -119,6 +119,7 @@ const viewApplications = async(req,res)=>{
 
 const updateApplication = async(req,res)=>{
     try {
+        // console.log(req.body);
         if(!req.body.applicationId)
             return res.status(404).json({message:"application not provided"})
         
@@ -127,26 +128,38 @@ const updateApplication = async(req,res)=>{
             return res.status(400).json({message:"application not found"})
         }
         
+        if(application.status === "selected" && status === "ready"){
+            application.status = "ready";
+            await application.save();
+            return status(200).json({message:"status updated"})
+        }
+
+
         if(application.status != 'draft')
             return res.status(400).json({message:"application already published"})
         
         if(!req.body.data)
             return res.status(400).json({message:"no data provided"})
         
-        const {bidAmount,coverLetter} = req.body.data;
+        const {bidAmount,coverLetter,status} = req.body.data;
         
-        if(!bidAmount && !coverLetter)
+        if(!bidAmount && !coverLetter && !status)
             return res.status(404).json("no data sent to update")
 
         if(bidAmount && !/^\d+(\.\d+)?$/.test(bidAmount)){
             return res.status(400).json({message:"wrong data given"})
         }
+
+        if(status !== "published")
+            return res.status(400).json({message:"wrong data given"})
         
         if(bidAmount)
             application.bidAmount = parseFloat(bidAmount);
         if(coverLetter)
             application.coverLetter = coverLetter;
-        
+        if(status)
+            application.status = status;
+
         await application.save();
         res.status(200).json({message:"data updated"})
     

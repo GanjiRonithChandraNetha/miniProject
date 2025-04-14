@@ -44,9 +44,11 @@ const viewJobs = async(req,res)=>{
 
 const agreeJob = async(req,res)=>{
     try {
-        const {applicationId} = req.body;
+        let {applicationId} = req.body;
+        console.log(applicationId)
         if(!applicationId)
             return res.status(400).json({message:"application not specified"});
+        applicationId = new mongoose.Types.ObjectId(applicationId)
         await applicationModel.updateOne(
             {_id:applicationId},
             {$set :{status:"ready"}}
@@ -60,4 +62,4 @@ const agreeJob = async(req,res)=>{
     }
 }
 
-export {viewJobs}
+export {viewJobs,agreeJob}
