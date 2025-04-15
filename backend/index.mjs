@@ -6,11 +6,13 @@ import profileRouter from './routes/profileRoutes.mjs'
 import issuesRouter from "./routes/issuesRoutes.mjs";
 import employerRoutes from "./routes/employerRoutes.mjs"
 import freelancerRoutes from "./routes/freelancerRoutes.mjs"
+import cors from 'cors'
 
 const PORT = 3636;
 const app = express();
 
 app.use(express.json())
+app.use(cors({origin:"http://localhost:5173"}))
 
 app.use('/v1/application/',accessRoutes);
 app.use(jwtChecker)

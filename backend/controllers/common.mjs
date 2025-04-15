@@ -18,6 +18,7 @@ console.log(SECRET);
 const signIn = async(req,res)=>{
     try{
         
+        console.log(req.body)
         //finding if userExists or not
         const findVar = await usersModel.find({userName:req.body.userName,email:req.body.email});
         
@@ -28,10 +29,11 @@ const signIn = async(req,res)=>{
                 password:req.body.password
             })
             if(!success){
-                res.json({
+                console.log(error)
+                res.status(402).json({
                     message:'user input error',
                     error:error.message
-                }).status(402);
+                });
                 return;
             }
             const hashedPassword = await bcrypt.hash(req.body.password,10);
@@ -100,6 +102,7 @@ const signIn = async(req,res)=>{
 
 const login = async (req,res)=>{
     try{
+        console.log(req.body);
         let checker = null;
         if (req.body.userName) {
             checker = await usersModel.findOne({ userName: req.body.userName });
