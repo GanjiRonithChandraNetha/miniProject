@@ -2,11 +2,13 @@ import applicationModel from "../../models/applications.mjs";
 import userJobsModel from "../../models/maps/userJobMap.mjs"
 import mongoose from "mongoose"
 
-const viewJobs = async(req,res)=>{
+const freelancerViewJobs = async(req,res)=>{
     try {
         const appointedJobs = await userJobsModel.aggregate([
             {
-                $match:mongoose.Types.ObjectId(req.user._id)
+                $match:{
+                    freelancerId:new mongoose.Types.ObjectId(req.user._id)
+                }
             },
             {
                 $lookup:{
@@ -62,4 +64,4 @@ const agreeJob = async(req,res)=>{
     }
 }
 
-export {viewJobs,agreeJob}
+export {freelancerViewJobs,agreeJob}

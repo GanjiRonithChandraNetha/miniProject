@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { UserPlus, Plus, X } from 'lucide-react';
 import axios from 'axios';
 
@@ -21,6 +21,7 @@ interface FormData {
 }
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<FormData>({
     username: '',
     email: '',
@@ -154,7 +155,8 @@ const SignUp = () => {
           const response = await axios.post("http://localhost:3636/v1/application/signIn", dataToSend);
           console.log(response);
           localStorage.setItem("FreeToken",response.data.token)
-          setSuccessMessage(response.data.message || 'Account created successfully!');cl
+          setSuccessMessage(response.data.message || 'Account created successfully!');
+          navigate("/dashboard");
         } catch (error) {
           console.error('Error submitting form:', error);
           setErrors({ general: error.response?.data?.message || 'Failed to create account. Try again later.' });

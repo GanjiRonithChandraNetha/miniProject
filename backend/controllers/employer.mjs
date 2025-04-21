@@ -5,8 +5,7 @@ import jobApplicationsmodel from "../models/maps/jobApplicationMap.mjs";
 import applicationModel from "../models/applications.mjs";
 import userApplicationsModel from "../models/maps/userApplicationMap.mjs"
 import mongoose from "mongoose";
-import jobModularChecker from "../utils/validaters/jobModularValidator.mjs";
-import { application } from "express";
+
 
 const createJob = async(req,res)=>{
     try {
@@ -30,10 +29,11 @@ const createJob = async(req,res)=>{
             //     imageRatio:req.body.imageRatio
             // })
             const job = await jobModel.create(data);
-            await userJobsModel.insertOne({
-                jobId:job._id,
-                employerId:req.user._id
-            })
+            console.log(job._id+"\n"+req.user._id);
+            await userJobsModel.create({
+                jobId: job._id,
+                employerId: req.user._id,
+            });
             res.status(200).json({message:"job created"})
         }
     } catch (error) {
@@ -48,7 +48,7 @@ const createJob = async(req,res)=>{
 // we ristrict one to have same named jobs with same user 
 // need team oppineone
 
-const viewJobs = async(req,res)=>{
+const employerViewJobs = async(req,res)=>{
     try {
         const jobs = await userJobsModel.aggregate([
             {
@@ -86,7 +86,7 @@ const viewJobs = async(req,res)=>{
                 }
             }
         ]);
-        console.log(jobs);
+        // console.log(jobs);
         const engagedJobs = []
         const vacantJobs = []
         jobs.forEach(element => {
@@ -113,8 +113,9 @@ const viewJobs = async(req,res)=>{
 
 const updateJob = async(req,res)=>{
     try {
+        console.log("hello")
         const {jobId,data} = req.body;
-
+        console.log(jobId,data)
         if (!jobId || !data || Array.isArray(data)) {
             res.status(400).json({message:"bad request"})
         }
@@ -251,8 +252,8 @@ const getApplicantsByJob = async(req,res)=>{
                 }
             }
         ])
-        const ans = applicants.filter(ele => ele.applicationDetails.status !== "draft")
-        res.status(200).json(ans);
+        // const ans = applicants.filter(ele => ele.applicationDetails.status !== "draft")
+        res.status(200).json(applicants);
 
     } catch (error) {
         console.log(error)
@@ -273,6 +274,7 @@ const sendAgreement = async(req,res)=>{
         const selectedIds = selected.map(id => new mongoose.Types.ObjectId(id));
 
         // Update all in two operations (still more efficient than individual updates)
+        console.log(selected);
         await applicationModel.updateMany(
             { 
                 $and:[
@@ -286,16 +288,26 @@ const sendAgreement = async(req,res)=>{
 
         await applicationModel.updateMany(
             { 
-                _id: { $in: jobApps },
-                $or:[
-                    {_id: { $nin: selectedIds }},
-                    {status:"draft"}
-                ]
+              _id: { $in: jobApps },
+              $and: [
+                {
+                  status: { $ne: 'selected' }
+                },
+                {
+                  $or: [
+                    { status: { $eq: 'draft' } },
+                    { _id:{$nin:selectedIds} }
+                  ]
+                }
+              ]
             },
-            { $set: { status: "rejected" } }
-        );
+            { 
+              $set: { status: "rejected" }
+            }
+          );          
         res.status(200).json({message:"data updated"});
     } catch (error) {
+        console.log(error);
         res.status(500).json({
             message:"internal server error",
             error:error.message
@@ -478,7 +490,7 @@ const proviedProject = async(req,res)=>{
 
 export {
     createJob,
-    viewJobs,
+    employerViewJobs,
     updateJob,
     getApplicantsByJob,
     sendAgreement,

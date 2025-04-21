@@ -2,7 +2,7 @@ import express from 'express';
 import connectToDB from './connections/localConnection.mjs';
 import accessRoutes from './routes/accessRoutes.mjs';
 import jwtChecker from './middelware/jwtChecker.mjs';
-import profileRouter from './routes/profileRoutes.mjs'
+import commonRoutes from './routes/commonRoutes.mjs'
 import issuesRouter from "./routes/issuesRoutes.mjs";
 import employerRoutes from "./routes/employerRoutes.mjs"
 import freelancerRoutes from "./routes/freelancerRoutes.mjs"
@@ -16,7 +16,7 @@ app.use(cors({origin:"http://localhost:5173"}))
 
 app.use('/v1/application/',accessRoutes);
 app.use(jwtChecker)
-app.use("/v1/application/",profileRouter);
+app.use("/v1/application/",commonRoutes);
 app.use("/v1/application/",issuesRouter);
 app.use("/v1/application/employer/job/",employerRoutes);
 app.use("/v1/application/freelancer/",freelancerRoutes);

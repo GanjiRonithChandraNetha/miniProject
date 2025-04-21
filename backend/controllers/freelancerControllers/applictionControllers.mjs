@@ -66,7 +66,9 @@ const viewApplications = async(req,res)=>{
     try {
         const data = await userApplicationsModel.aggregate([
             {
-                $match:{freelancerId:new Mongoose.Types.ObjectId(req.user._id)}
+                $match:{
+                    freelancerId:new Mongoose.Types.ObjectId(req.user._id)
+                }
             },
             {
                 $lookup:{
@@ -106,7 +108,33 @@ const viewApplications = async(req,res)=>{
                 }
             }
         ]);
-        res.status(200).json({data:data});
+        const rejected = [];
+        const draft = [];
+        const appointed = [];
+        const published = [];
+        const selected = [];
+        const ready = [];
+
+        for(let i=0;i<data.length;i++){
+            console.log(data[i].applicationDetails.status)
+            if(data[i].applicationDetails.status === 'rejected')rejected.push(data[i]);
+            else if(data[i].applicationDetails.status === 'draft')draft.push(data[i]);
+            else if(data[i].applicationDetails.status === "appointed")appointed.push(data[i]);
+            else if(data[i].applicationDetails.status === "published")published.push(data[i]);
+            else if(data[i].applicationDetails.status === "selected")selected.push(data[i]);
+            else if(data[i].applicationDetails.status === "ready")ready.push(data[i])
+        }
+        for(const ele of data)
+            console.log(ele.applicationDetails.status);
+
+        res.status(200).json({
+            rejected,
+            draft,
+            appointed,
+            published,
+            selected,
+            ready
+        });
 
     } catch (error) {
         console.log(error)
@@ -127,6 +155,8 @@ const updateApplication = async(req,res)=>{
         if(!application){
             return res.status(400).json({message:"application not found"})
         }
+
+        const {bidAmount,coverLetter,status} = req.body.data;
         
         if(application.status === "selected" && status === "ready"){
             application.status = "ready";
@@ -138,20 +168,15 @@ const updateApplication = async(req,res)=>{
         if(application.status != 'draft')
             return res.status(400).json({message:"application already published"})
         
-        if(!req.body.data)
-            return res.status(400).json({message:"no data provided"})
+        if(!req.body.data || (!bidAmount && !coverLetter && !status))
+            return res.status(404).json({message:"no data provided"})
         
-        const {bidAmount,coverLetter,status} = req.body.data;
-        
-        if(!bidAmount && !coverLetter && !status)
-            return res.status(404).json("no data sent to update")
-
         if(bidAmount && !/^\d+(\.\d+)?$/.test(bidAmount)){
             return res.status(400).json({message:"wrong data given"})
         }
 
         if(status !== "published")
-            return res.status(400).json({message:"wrong data given"})
+            return res.status(400).json({message:`application can be converted to ${status}`})
         
         if(bidAmount)
             application.bidAmount = parseFloat(bidAmount);

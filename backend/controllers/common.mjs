@@ -1,6 +1,7 @@
 import usersModel from '../models/users.mjs'
 import linksModel from '../models/links.mjs'
 import skillsModel from '../models/skills.mjs'
+import jobModel from '../models/jobs.mjs';
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv'
 import jwt  from 'jsonwebtoken'
@@ -111,7 +112,7 @@ const login = async (req,res)=>{
         } else {
             return res.status(400).json({ message: "userName or email is required" });
         }
-
+        console.log(checker)
         if(checker){
             if(bcrypt.compare(req.body.password,checker.password)){
                 const token = jwt.sign(
@@ -131,8 +132,8 @@ const login = async (req,res)=>{
             }else{
                 res.status(400).json({message:"wrong password"})
             }
-        }
-    
+        }else
+            res.status(400).json({message:"user does not exist"})
     }catch(err){
         res.status(500).json({
             message:"user not loged in",
@@ -347,4 +348,34 @@ const viewIssue = async(req,res)=>{
     }
 }
 
-export {signIn,login,getProfile,updateSkills,updateLinks,viewIssue,raiseIssue}
+const search = async (req, res) => {
+    const search = req.query.search?.toLowerCase() || '';
+
+    const jobs = await jobModel.find({
+        $or: [
+        { title: { $regex: search, $options: 'i' } },
+        { description: { $regex: search, $options: 'i' } },
+        { skills: { $regex: search, $options: 'i' } }
+        ]
+    });
+    res.json({ vacantJobs: jobs.filter(job => job.status === 'vacant'), engagedJobs: jobs.filter(job => job.status === 'engaged') });
+}
+
+const viewJob = async(req,res)=>{
+    try {
+        console.log("hello");
+        const jobId = req.params.jobId
+        console.log(jobId);
+        if(!jobId)
+            return res.status(400).json({message:"jobId not sent"});
+        const job = await jobModel.findById(jobId);
+        console.log(job);
+        if(!job)
+            return res.status(404).json({message:"job not found"});
+        res.status(200).json({data:job});
+    } catch (error) {
+        
+    }
+}
+
+export {signIn,login,getProfile,updateSkills,updateLinks,viewIssue,raiseIssue,search,viewJob}

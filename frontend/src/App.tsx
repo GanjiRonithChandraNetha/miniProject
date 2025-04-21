@@ -95,6 +95,7 @@ import ViewDisputes from './pages/admin/ViewDisputes';
 import CreateJob from './pages/employer/CreateJob';
 import ViewApplicants from './pages/employer/ViewApplicants';
 import ViewJob from './pages/employer/ViewJob';
+import ApplyJob from './pages/freelancer/ApplyJob';
 
 function App() {
   return (
@@ -114,9 +115,10 @@ function App() {
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/view-disputes" element={<ViewDisputes />} />
           <Route path="/employer/create-job" element={<CreateJob />} />
-          <Route path="/employer/view-applicants" element={<ViewApplicants />} />
+          <Route path="/employer/view-applicants/:jobId" element={<ViewApplicants />} />
           <Route path="/employer/view-jobs" element={<ViewJob />} />
           <Route path="/seeker-dashboard" element={<SeekerDashboard />} />
+          <Route path="/applyJob/:jobId" element={<ApplyJob/>}/>
         </Route>
       </Routes>
     </Router>
