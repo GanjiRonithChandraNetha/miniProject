@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LogIn } from 'lucide-react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -18,6 +20,7 @@ const Login = () => {
       const res = await axios.post("http://localhost:3636/v1/application/login",data);
       console.log(res);
       localStorage.setItem('FreeToken',res.data.token);
+      navigate('/dashboard');
     } catch (error) {
       console.log(error);
     }

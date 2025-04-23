@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Edit, Check, X, Users } from 'lucide-react';
+import { Edit, Check, X, Users ,Handshake} from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const ViewJobs = () => {
@@ -102,7 +102,11 @@ const ViewJobs = () => {
     navigate(`/applicants/${jobId}`);
   };
 
-  const renderJobCard = (job, isEditing) => {
+  const viewAgreed = (jobId)=>{
+    navigate(`/hire/${jobId}`);
+  }
+
+  const renderJobCard = (job, isEditing,isEngaged) => {
     const jobData = job.job || job;
     
     if (isEditing) {
@@ -181,20 +185,29 @@ const ViewJobs = () => {
       <div className="bg-white rounded-lg shadow-md p-6 mb-4" key={jobData._id}>
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold">{jobData.title}</h2>
-          <div className="flex space-x-2">
-            <button 
-              onClick={() => handleEdit(jobData)} 
-              className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            >
-              <Edit size={20} />
-            </button>
-            <button 
-              onClick={() => viewApplicants(jobData._id)} 
-              className="p-2 bg-purple-500 text-white rounded hover:bg-purple-600"
-            >
-              <Users size={20} />
-            </button>
-          </div>
+          {
+            !isEngaged&&
+            (<div className="flex space-x-2">
+              <button 
+                onClick={() => handleEdit(jobData)} 
+                className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              >
+                <Edit size={20} />
+              </button>
+              <button 
+                onClick={() => viewApplicants(jobData._id)} 
+                className="p-2 bg-purple-500 text-white rounded hover:bg-purple-600"
+              >
+                <Users size={20} />
+              </button>
+              <button
+                onClick={()=>viewAgreed(jobData._id)}
+                className='p-2 bg-green-500 text-white rounded hover:bg-green-600'
+              >
+                <Handshake size={20}/>
+              </button>
+            </div>)
+          }
         </div>
 
         <div className="mb-4 whitespace-pre-line text-gray-700">
@@ -238,14 +251,14 @@ const ViewJobs = () => {
       {vacantJobs.length > 0 && (
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4 border-b pb-2">Vacant Jobs</h2>
-          {vacantJobs.map(job => renderJobCard(job, editingJob === job.job._id))}
+          {vacantJobs.map(job => renderJobCard(job, editingJob === job.job._id,false))}
         </div>
       )}
       
       {engagedJobs.length > 0 && (
         <div>
           <h2 className="text-xl font-semibold mb-4 border-b pb-2">Engaged Jobs</h2>
-          {engagedJobs.map(job => renderJobCard(job, editingJob === job.job._id))}
+          {engagedJobs.map(job => renderJobCard(job, editingJob === job.job._id,true))}
         </div>
       )}
       

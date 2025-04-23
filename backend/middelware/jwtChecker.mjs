@@ -6,6 +6,7 @@ const SECRET = process.env.SECRET
 
 const jwtChecker = async(req,res,next)=>{
     try {
+        // console.log(req);
         console.log(req.headers['authorization'])
         const token = req.headers['authorization']?.split(' ')[1];
         console.log(token);
@@ -25,6 +26,7 @@ const jwtChecker = async(req,res,next)=>{
             },SECRET,{expiresIn:'2d'})
             req.header.Authorization = `Bearer ${newToken}`;
         }
+        console.log(req.body);
         next();
     } catch (error) {
         if(error.name == 'TokenExpiredError'){

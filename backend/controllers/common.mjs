@@ -358,7 +358,7 @@ const search = async (req, res) => {
         { skills: { $regex: search, $options: 'i' } }
         ]
     });
-    res.json({ vacantJobs: jobs.filter(job => job.status === 'vacant'), engagedJobs: jobs.filter(job => job.status === 'engaged') });
+    res.json({ vacantJobs: jobs.filter(job => job.status === 'vacant'), engagedJobs: jobs.filter(job => job.status === 'ongoing') });
 }
 
 const viewJob = async(req,res)=>{
@@ -378,4 +378,13 @@ const viewJob = async(req,res)=>{
     }
 }
 
-export {signIn,login,getProfile,updateSkills,updateLinks,viewIssue,raiseIssue,search,viewJob}
+export {signIn,
+    login,
+    getProfile,
+    updateSkills,
+    updateLinks,
+    viewIssue,
+    raiseIssue,
+    search,
+    viewJob
+}

@@ -5,6 +5,7 @@ import jobApplicationsmodel from "../models/maps/jobApplicationMap.mjs";
 import applicationModel from "../models/applications.mjs";
 import userApplicationsModel from "../models/maps/userApplicationMap.mjs"
 import mongoose from "mongoose";
+import jobModularChecker from "../utils/validaters/jobModularValidator.mjs"
 
 
 const createJob = async(req,res)=>{
@@ -146,10 +147,15 @@ const updateJob = async(req,res)=>{
             // console.log(res);
             if(req.updatePromises)
                 await Promise.all(req.updatePromises);
-            res.status(200).json({message:"data updated"})
+            res.status(200).json({
+                message:"data updated",
+                success:true
+            })
         }
             
     } catch (error) {
+        console.log("update");
+        console.log(error);
         res.status(500).json({
             message:"internal server error",
             error:error.message
@@ -252,8 +258,8 @@ const getApplicantsByJob = async(req,res)=>{
                 }
             }
         ])
-        // const ans = applicants.filter(ele => ele.applicationDetails.status !== "draft")
-        res.status(200).json(applicants);
+        const ans = applicants.filter(ele => ele.applicationDetails.status !== "draft")
+        res.status(200).json(ans);
 
     } catch (error) {
         console.log(error)
@@ -481,6 +487,8 @@ const proviedProject = async(req,res)=>{
         
         updateJob(req,res);
     } catch (error) {
+        console.log("provied");
+        console.log(error);
         res.status(500).json({
             message:"internal server error",
             error:error.message

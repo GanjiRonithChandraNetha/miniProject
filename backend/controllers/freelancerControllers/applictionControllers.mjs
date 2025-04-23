@@ -114,9 +114,12 @@ const viewApplications = async(req,res)=>{
         const published = [];
         const selected = [];
         const ready = [];
-
+        console.log(Array.isArray(data));
         for(let i=0;i<data.length;i++){
-            console.log(data[i].applicationDetails.status)
+            if(data[i].applicationDetails === undefined) continue;
+            console.log(Array.isArray(data[i]))
+            // console.log(data[i].applicationDetails === undefined);
+            console.log(data[i]);
             if(data[i].applicationDetails.status === 'rejected')rejected.push(data[i]);
             else if(data[i].applicationDetails.status === 'draft')draft.push(data[i]);
             else if(data[i].applicationDetails.status === "appointed")appointed.push(data[i]);
@@ -124,8 +127,8 @@ const viewApplications = async(req,res)=>{
             else if(data[i].applicationDetails.status === "selected")selected.push(data[i]);
             else if(data[i].applicationDetails.status === "ready")ready.push(data[i])
         }
-        for(const ele of data)
-            console.log(ele.applicationDetails.status);
+        // for(const ele of data)
+        //     console.log(ele.applicationDetails.status);
 
         res.status(200).json({
             rejected,
@@ -147,13 +150,14 @@ const viewApplications = async(req,res)=>{
 
 const updateApplication = async(req,res)=>{
     try {
-        // console.log(req.body);
+        console.log("HELLO");
+        console.log(req.body);
         if(!req.body.applicationId)
             return res.status(404).json({message:"application not provided"})
         
         const application = await applicationModel.findById(req.body.applicationId)
         if(!application){
-            return res.status(400).json({message:"application not found"})
+            return res.status(409).json({message:"application not found"})
         }
 
         const {bidAmount,coverLetter,status} = req.body.data;
@@ -166,17 +170,17 @@ const updateApplication = async(req,res)=>{
 
 
         if(application.status != 'draft')
-            return res.status(400).json({message:"application already published"})
+            return res.status(409).json({message:"application already published"})
         
         if(!req.body.data || (!bidAmount && !coverLetter && !status))
             return res.status(404).json({message:"no data provided"})
         
         if(bidAmount && !/^\d+(\.\d+)?$/.test(bidAmount)){
-            return res.status(400).json({message:"wrong data given"})
+            return res.status(409).json({message:"wrong data given"})
         }
 
-        if(status !== "published")
-            return res.status(400).json({message:`application can be converted to ${status}`})
+        if(status && status !== "published" && status !== "draft")
+            return res.status(409).json({message:`application can be converted to ${status}`})
         
         if(bidAmount)
             application.bidAmount = parseFloat(bidAmount);

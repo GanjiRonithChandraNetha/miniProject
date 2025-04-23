@@ -96,6 +96,7 @@ import CreateJob from './pages/employer/CreateJob';
 import ViewApplicants from './pages/employer/ViewApplicants';
 import ViewJob from './pages/employer/ViewJob';
 import ApplyJob from './pages/freelancer/ApplyJob';
+import HiringPage from './pages/employer/HiringPage';
 
 function App() {
   return (
@@ -119,6 +120,7 @@ function App() {
           <Route path="/employer/view-jobs" element={<ViewJob />} />
           <Route path="/seeker-dashboard" element={<SeekerDashboard />} />
           <Route path="/applyJob/:jobId" element={<ApplyJob/>}/>
+          <Route path="/hire/:jobId" element={<HiringPage/>}/>
         </Route>
       </Routes>
     </Router>
