@@ -16,7 +16,7 @@ const SALT = process.env.SALT || 10;
 console.log(SALT);
 console.log(SECRET);
 
-const signIn = async(req,res)=>{
+const signUp = async(req,res)=>{
     try{
         
         console.log(req.body)
@@ -101,9 +101,10 @@ const signIn = async(req,res)=>{
     }
 }
 
-const login = async (req,res)=>{
+const signIn = async (req,res)=>{
     try{
         console.log(req.body);
+        console.log("ronith");
         let checker = null;
         if (req.body.userName) {
             checker = await usersModel.findOne({ userName: req.body.userName });
@@ -379,7 +380,7 @@ const viewJob = async(req,res)=>{
 }
 
 export {signIn,
-    login,
+    signUp,
     getProfile,
     updateSkills,
     updateLinks,

@@ -1,0 +1,36 @@
+using user objId though jwt token
+
+output:
+------
+{
+    "data": [
+        {
+            "freelancerId": "67fca5d2b4bd794a87b77651",
+            "applicationId": "67fcd3dd6d8d02d21351fce3",
+            "applicationDetails": {
+                "_id": "67fcd3dd6d8d02d21351fce3",
+                "bidAmount": 275000,
+                "coverLetter": "Shravan Kumar\n[Phone: +91 9123456789]\n[Email: shravan.kumar@example.com]\n[LinkedIn: https://www.linkedin.com/in/shravankumar/]\n[GitHub: https://github.com/shravan-dev]\n[Portfolio: https://shravan-portfolio.vercel.app]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for Frontend Developer Position\n\nDear Hiring Manager,\n\nI am writing to express my interest in the Frontend Developer position at [Company Name]. With a strong foundation in React.js, UI/UX design, and responsive development, I am passionate about crafting interactive and visually appealing web applications.\n\nMy portfolio showcases a range of projects that demonstrate my ability to translate complex user needs into seamless designs. I am confident that my technical skills and eye for design will make a positive impact on your team.\n\nThank you for considering my application. I look forward to the opportunity to contribute to your projects and bring your visions to life.\n\nWarm regards,\nShravan Kumar\n[Phone: +91 9123456789] | [Email: shravan.kumar@example.com]",
+                "status": "draft",
+                "createdAt": "2025-04-14T09:22:37.398Z",
+                "updatedAt": "2025-04-14T11:21:48.394Z",
+                "__v": 0
+            },
+            "jobId": "67fcaeff6d8d02d21351fcbd"
+        },
+        {
+            "freelancerId": "67fca5d2b4bd794a87b77651",
+            "applicationId": "67fcd5716d8d02d21351fcf1",
+            "applicationDetails": {
+                "_id": "67fcd5716d8d02d21351fcf1",
+                "bidAmount": 230000,
+                "coverLetter": "Shravan Kumar\n[Phone: +91 9123456789]\n[Email: shravan.kumar@example.com]\n[LinkedIn: https://www.linkedin.com/in/shravankumar/]\n[GitHub: https://github.com/shravan-dev]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for AI-Powered Chatbot Developer Position\n\nDear Hiring Manager,\n\nI am thrilled to apply for the AI-Powered Chatbot Developer role at [Company Name]. As a skilled frontend and UI/UX developer with a growing interest in AI and chatbot development, I am eager to leverage my expertise to build conversational interfaces that prioritize user experience.\n\nMy proficiency in React.js and collaboration with backend teams has provided me with insights into seamless integration of AI-driven functionalities. I am particularly drawn to this opportunity to work on cutting-edge AI technologies and contribute to enhancing user interactions.\n\nThank you for considering my application. I look forward to the opportunity to contribute my skills and enthusiasm to your team.\n\nWarm regards,\nShravan Kumar\n[Phone: +91 9123456789] | [Email: shravan.kumar@example.com]",
+                "status": "draft",
+                "createdAt": "2025-04-14T09:29:21.460Z",
+                "updatedAt": "2025-04-14T09:29:21.460Z",
+                "__v": 0
+            },
+            "jobId": "67fcae256d8d02d21351fcb9"
+        }
+    ]
+}

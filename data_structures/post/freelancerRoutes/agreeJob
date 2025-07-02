@@ -1,0 +1,20 @@
+input:
+------
+{
+    "applicationId":"67fcd58e6d8d02d21351fcf8"
+}
+
+output:
+------
+
+200
+{message:"updated application to ready state"}
+
+400 (no application id)
+{message:"application not specified"}
+
+500
+{
+    message:"interanl server error",
+    error:error.message
+}

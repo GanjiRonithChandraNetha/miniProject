@@ -1,0 +1,28 @@
+input:
+------
+{
+    "userName":"ronithganji21",
+    "email":"ronithganji21062004@gmail.com",
+    "password":"₹7386ronith"
+}
+
+
+output:
+--------
+
+200----------------
+{
+    message:"user loged in",
+    token:token
+}
+
+400 --------------
+{ message: "userName or email is required" }
+{message:"wrong password"}
+{message:"user does not exist"}
+
+500 --------------
+{
+    message:"user not loged in",
+    error:err.message
+}

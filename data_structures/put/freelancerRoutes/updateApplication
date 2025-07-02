@@ -1,0 +1,32 @@
+input: (relevent feilds are only sent)
+------
+
+{
+    "applicationId":"67fcd5ac6d8d02d21351fcff",
+    "data":{
+        "status":"published"
+    }
+}
+
+output:
+------
+
+200
+{message:"status updated"}
+{message:"data updated"}
+
+404
+{message:"application not provided"}
+{message:"no data provided"}
+
+409
+{message:"application not found"}
+{message:"application already published"}
+{message:"wrong data given"}
+{message:`application can be converted to ${status}`}
+
+500
+{
+    message:"internal server error",
+    error:error.message
+}

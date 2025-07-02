@@ -1,8 +1,8 @@
 import {Router} from 'express';
-import {signIn,login} from '../controllers/common.mjs'
+import {signIn,signUp} from '../controllers/common.mjs'
 
 const router = Router();
-router.post('/login',login);
-router.post('/signIn',signIn);
+router.post('/signin',signIn);
+router.post('/signUp',signUp);
 
 export default router;

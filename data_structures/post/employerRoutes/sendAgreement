@@ -1,0 +1,22 @@
+input:
+------
+{
+    "jobId": "67fcae256d8d02d21351fcb9",
+    "selected": [
+        "67fcd5716d8d02d21351fcf1",
+        "67fcd58e6d8d02d21351fcf8",
+        "67fcd5ac6d8d02d21351fcff"
+    ]
+}
+
+output:
+-------
+
+200
+{message:"data updated"}
+
+500
+{
+    message:"internal server error",
+    error:error.message
+}

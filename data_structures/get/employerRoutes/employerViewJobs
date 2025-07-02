@@ -1,0 +1,46 @@
+
+using user objId through jwt token
+-----------------------------------
+
+output:
+-------
+{
+    "vacantJobs": [
+        {
+            "_id": "67fcaeff6d8d02d21351fcbf",
+            "jobId": "67fcaeff6d8d02d21351fcbd",
+            "employerId": "67fca68db4bd794a87b77683",
+            "job": {
+                "_id": "67fcaeff6d8d02d21351fcbd",
+                "title": "Blockchain Developer - Smart Contracts",
+                "description": "Job Title: Blockchain Developer (Smart Contracts & Web3)\n\nJob Type: Full-Time / Contract / Freelance\n\nLocation: Remote / On-Site (Specify Location)\n\nSalary: Competitive, based on experience\n\nJob Overview:\nWe are seeking a Blockchain Developer to build and deploy secure smart contracts and decentralized applications (DApps). The ideal candidate should have experience with Solidity, Ethereum, and Web3.js, and be proficient in designing blockchain-based solutions.\n\nKey Responsibilities:\n\nDevelop and deploy Ethereum-based smart contracts\n\nIntegrate blockchain features into existing applications\n\nEnsure security and performance of smart contracts\n\nOptimize gas fees and transaction processing\n\nDevelop decentralized identity and payment solutions\n\nMonitor blockchain network performance and security\n\nWork with frontend teams to integrate blockchain functionalities\n\nPerform audits, testing, and deployment of smart contracts.",
+                "skills": [
+                    "Solidity",
+                    "Ethereum",
+                    "Web3.js",
+                    "Smart Contracts",
+                    "DApp Development",
+                    "NFTs",
+                    "IPFS",
+                    "Hardhat",
+                    "Truffle",
+                    "DeFi",
+                    "Polygon",
+                    "Solana",
+                    "Rust",
+                    "MongoDB",
+                    "GraphQL",
+                    "Git",
+                    "GitHub"
+                ],
+                "budget": 350000,
+                "deadline": "2025-09-10T00:00:00.000Z",
+                "status": "vacant",
+                "createdAt": "2025-04-14T06:45:19.841Z",
+                "__v": 0
+            },
+            "expired": false
+        }
+    ],
+    "engagedJobs": []
+}

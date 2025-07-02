@@ -1,0 +1,33 @@
+input:
+------
+{
+    "jobId": "67fcaeff6d8d02d21351fcbd",
+    "data": {
+        "budget": 350000
+    }
+}
+
+output:
+-------
+200
+{
+    message:"data updated",
+    success:true
+}
+
+400
+{message:"bad request"}
+{message:"no job found"}
+{message:"job can not be edited after an aggrement"}
+
+401
+{
+    message: "Incompatible data sent",
+    error: obj.error,
+}
+
+500
+{   
+    message:"internal server error",
+    error:error.message
+}

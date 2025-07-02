@@ -131,9 +131,9 @@ const Layout = ({ children }) => {
           isOpen={isSidebarOpen} 
           onClose={() => setIsSidebarOpen(false)}
         />
-        <main className="flex-1 p-6 md:ml-64 transition-all duration-300">
+        {/* <main className="flex-1 p-6 md:ml-64 transition-all duration-300">
           {children}
-        </main>
+        </main> */}
       </div>
     </div>
   );

@@ -6,7 +6,8 @@ const SECRET = process.env.SECRET
 
 const jwtChecker = async(req,res,next)=>{
     try {
-        // console.log(req);
+        console.log(req);
+        // console.log("ronith");
         console.log(req.headers['authorization'])
         const token = req.headers['authorization']?.split(' ')[1];
         console.log(token);

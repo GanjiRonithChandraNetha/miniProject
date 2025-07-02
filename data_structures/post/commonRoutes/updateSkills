@@ -1,0 +1,26 @@
+input:
+------
+{
+    "type":"DELETE",     
+    "linkId":"67fcad5d6d8d02d21351fcb6"
+}
+{
+    "type":"INSERT",
+    "linkKey":"linkedIn",
+    "linkValue":"https://www.instagram.com/ronith_chandra/"
+}
+
+output:
+-------
+200
+{"message": "data deleted"}
+{"message": "data inserted"}
+
+400
+{"message":"worng input"}
+
+500
+{
+    message:"failed in making updates in links",
+    error:error.message
+}

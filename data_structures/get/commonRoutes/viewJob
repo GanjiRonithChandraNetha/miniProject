@@ -1,0 +1,40 @@
+input 
+query string with parameter jobId
+
+output:
+-------
+
+{
+  "_id": {
+    "$oid": "6808871150532fc5377e8221"
+  },
+  "title": "AI-Powered Chatbot Developer",
+  "description": "Job Title: AI Chatbot Developer (Node.js & Python)\n\nJob Type: Full-Time / Contract / Freelance\n\nLocation: Remote / On-Site (Specify Location)\n\nSalary: Competitive, based on experience\n\nJob Overview:\nWe are looking for an AI Chatbot Developer to design, develop, and deploy intelligent chatbot solutions. The ideal candidate should have expertise in AI, NLP, and chatbot frameworks, particularly using Node.js, Python, and OpenAI APIs.\n\nKey Responsibilities:\n\nDevelop AI-driven chatbots using NLP models\n\nIntegrate chatbots into web and mobile applications\n\nImplement speech-to-text and text-to-speech features\n\nTrain and fine-tune machine learning models for better user interaction\n\nEnsure chatbot security and data privacy compliance\n\nMonitor and improve chatbot performance through analytics\n\nWork closely with UI/UX designers to enhance conversational experience\n\nPerform testing, debugging, and deployment of chatbots.",
+  "skills": [
+    "Node.js",
+    "Python",
+    "NLP",
+    "OpenAI",
+    "Dialogflow",
+    "Chatbot Development",
+    "TensorFlow",
+    "REST API",
+    "Socket.io",
+    "Machine Learning",
+    "AWS",
+    "Firebase",
+    "MongoDB",
+    "MySQL",
+    "Git",
+    "GitHub"
+  ],
+  "budget": 250000,
+  "deadline": {
+    "$date": "2025-08-15T00:00:00.000Z"
+  },
+  "status": "vacant",
+  "createdAt": {
+    "$date": "2025-04-23T06:22:09.556Z"
+  },
+  "__v": 0
+}

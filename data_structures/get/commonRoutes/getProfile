@@ -1,0 +1,70 @@
+
+inputs 
+in headers using token
+{
+    body:{
+        userName:userName,
+        email:useremail
+    }
+}
+
+
+out put data structure 
+
+200 ----------------------
+{
+    username:user.userName,
+    email:user.email,
+    profile:user.profilePic,
+    skills:skillsArr,
+    links:linksArr
+}
+example:
+{
+    "username": "ronithganji",
+    "email": "ronithganji21062004@gmail.com",
+    "profile": {},
+    "skills": [
+        {
+            "_id": "67fca5a6b4bd794a87b77647",
+            "skill": "web-developer"
+        },
+        {
+            "_id": "67fca5a6b4bd794a87b77648",
+            "skill": "devops"
+        },
+        {
+            "_id": "67fca5a6b4bd794a87b77649",
+            "skill": "fullstack"
+        }
+    ],
+    "links": [
+        {
+            "_id": "67fca5a6b4bd794a87b7764b",
+            "linkedIn": "https://www.linkedin.com/in/ronith-ganji-023093301/"
+        },
+        {
+            "_id": "67fca5a6b4bd794a87b7764c",
+            "instagram": "https://www.instagram.com/ronith_chandra/"
+        },
+        {
+            "_id": "67fca5a6b4bd794a87b7764d",
+            "github": "https://www.github.com/RonithChandraGanjiNetha"
+        },
+        {
+            "_id": "67fca5a6b4bd794a87b7764e",
+            "project": "still not deployed check it on github"
+        }
+    ]
+}
+
+
+ 500 ------------------------
+{
+    message:"error in fetching data",
+    error:error.message
+}
+
+404 --------------------------
+
+{message:"user not found"}

@@ -1,0 +1,29 @@
+input:
+------
+{
+    "jobId": "67fcae256d8d02d21351fcb9",
+    "data":{
+            "bidAmount": 240000,
+            "coverLetter": "Amit Verma\n[Phone: +91 9876532100]\n[Email: amit.verma@example.com]\n[LinkedIn: https://www.linkedin.com/in/amitverma/]\n[GitHub: https://github.com/amitverma-android]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for AI-Powered Chatbot Developer Position\n\nDear Hiring Manager,\n\nI am excited to apply for the AI-Powered Chatbot Developer position at [Company Name]. With a strong foundation in mobile and web development, coupled with my experience in integrating AI solutions, I am confident in my ability to contribute effectively to your team.\n\nDuring my career, I have developed applications that combine advanced functionalities with user-centric designs. My technical expertise includes:\n\n- Proficiency in **Node.js**, **Python**, and chatbot frameworks like **Dialogflow** and **OpenAI APIs**.\n- Experience with integrating AI functionalities into mobile and web applications.\n- Strong understanding of **UI/UX design principles**, ensuring a seamless user experience for conversational agents.\n- Familiarity with database management (MongoDB, MySQL) and deployment strategies using **AWS**.\n\nI am particularly drawn to this role because it aligns with my passion for designing intelligent chatbot solutions that enhance user interactions and streamline processes. My commitment to innovation and problem-solving makes me eager to bring value to your organization.\n\nThank you for considering my application. I look forward to discussing how I can contribute to your mission of delivering impactful AI-driven solutions.\n\nWarm regards,\nAmit Verma\n[Phone: +91 9876532100] | [Email: amit.verma@example.com]"
+        }
+}
+
+output:
+-------
+200
+{ message: "Applied for the job successfully" }
+
+400 (input checking)
+{ message: "Bad request: Invalid jobId or data" } 
+{ message: "Invalid bidAmount" }
+{ message: "Invalid fields in request data" }
+{ message: "Cannot apply for this job as it has expired" }
+
+404 
+{ message: "Job not found" }
+
+500
+{ 
+    message: "Internal server error", 
+    error: error.message 
+}

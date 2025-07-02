@@ -15,6 +15,7 @@ app.use(express.json())
 app.use(cors({origin:"http://localhost:5173"}))
 
 app.use('/v1/application/',accessRoutes);
+
 app.use(jwtChecker)
 app.use("/v1/application/",commonRoutes);
 app.use("/v1/application/",issuesRouter);

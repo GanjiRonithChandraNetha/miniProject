@@ -17,7 +17,8 @@ const Login = () => {
       password:password
     }
     try {
-      const res = await axios.post("http://localhost:3636/v1/application/login",data);
+      console.log(data);
+      const res = await axios.post("http://localhost:3636/v1/application/signin",data);
       console.log(res);
       localStorage.setItem('FreeToken',res.data.token);
       navigate('/dashboard');

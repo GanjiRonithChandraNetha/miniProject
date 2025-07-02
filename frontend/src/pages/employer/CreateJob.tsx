@@ -238,6 +238,15 @@ const CreateJob = () => {
           },
         }
       )
+      alert("job created successfully");
+      setJobData({
+        title: '',
+        description: '',
+        budget: '',
+        deadline: '',
+        skills: [],
+        status: 'vacant'
+      })
       toast.success('Job created successfully!');
       // navigate('/employer/jobs');
     } catch (error) {

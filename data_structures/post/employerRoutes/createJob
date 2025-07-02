@@ -1,0 +1,27 @@
+input:
+------
+{
+    "title":"ecommers",
+    "description":"Job Title: E-commerce Web Developer (MERN Stack Preferred)\n\nJob Type: Full-Time / Contract / Freelance\n\nLocation: Remote / On-Site (Specify Location)\n\nSalary: Competitive, based on experience\n\nJob Overview:\nWe are looking for a talented E-commerce Web Developer to design, develop, and maintain a high-performing e-commerce website. The ideal candidate should have expertise in full-stack web development, particularly using the MERN stack (MongoDB, Express.js, React.js, Node.js), and be experienced in integrating payment gateways, product management, and user authentication.\n\nKey Responsibilities:\n\nDesign and develop a responsive and user-friendly e-commerce website\n\nImplement secure authentication & authorization (JWT/OAuth)\n\nDevelop product listing, filtering, and search functionalities\n\nIntegrate payment gateways (Stripe, Razorpay, PayPal, etc.)\n\nEnsure website performance, scalability, and SEO optimization\n\nDevelop an intuitive admin panel for order and product management\n\nImplement cart, checkout, and order tracking functionalities\n\nEnsure mobile responsiveness and cross-browser compatibility\n\nWork closely with UI/UX designers to enhance the customer experience\n\nPerform testing, debugging, and deployment of the application.",
+    "skills":["MERN", "REST API", "Third-party Integrations", "Redux", "Next.js", "GraphQL", "Bootstrap", "Tailwind CSS", "Material-UI", "MongoDB", "MySQL", "AWS", "Firebase", "DigitalOcean", "Payment Gateway Integration", "Security Best Practices", "Problem-Solving", "Debugging", "Agile", "Git", "GitHub"], 
+    "budget":200000,
+    "deadline":"2025-06-03",
+    "status":"vacant"
+}
+
+output:
+------
+200
+{message:"job created"}
+
+400 (for wrong formating)
+{
+    message:"incorrect data sent",
+    error:error
+}
+
+500
+{
+    message:"internal server error",
+    error:error.message
+}

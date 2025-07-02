@@ -1,0 +1,156 @@
+input:
+-------
+{
+    "jobId":"67fcae256d8d02d21351fcb9"
+}
+
+output:
+-------
+200
+[
+    {
+        "_id": "67fcd5716d8d02d21351fcf5",
+        "applicationId": "67fcd5716d8d02d21351fcf1",
+        "jobId": "67fcae256d8d02d21351fcb9",
+        "applicationDetails": {
+            "bidAmount": 230000,
+            "coverLetter": "Shravan Kumar\n[Phone: +91 9123456789]\n[Email: shravan.kumar@example.com]\n[LinkedIn: https://www.linkedin.com/in/shravankumar/]\n[GitHub: https://github.com/shravan-dev]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for AI-Powered Chatbot Developer Position\n\nDear Hiring Manager,\n\nI am thrilled to apply for the AI-Powered Chatbot Developer role at [Company Name]. As a skilled frontend and UI/UX developer with a growing interest in AI and chatbot development, I am eager to leverage my expertise to build conversational interfaces that prioritize user experience.\n\nMy proficiency in React.js and collaboration with backend teams has provided me with insights into seamless integration of AI-driven functionalities. I am particularly drawn to this opportunity to work on cutting-edge AI technologies and contribute to enhancing user interactions.\n\nThank you for considering my application. I look forward to the opportunity to contribute my skills and enthusiasm to your team.\n\nWarm regards,\nShravan Kumar\n[Phone: +91 9123456789] | [Email: shravan.kumar@example.com]",
+            "status": "published"
+        },
+        "userDetails": [
+            {
+                "username": [
+                    "shravan_kumar"
+                ],
+                "email": [
+                    "shravan.kumar@example.com"
+                ],
+                "profilePic": []
+            }
+        ],
+        "userSkills": [
+            [
+                "frontend",
+                "UI/UX",
+                "react"
+            ]
+        ],
+        "links": [
+            {
+                "key": "linkedIn",
+                "value": "https://www.linkedin.com/in/shravankumar/"
+            },
+            {
+                "key": "instagram",
+                "value": "https://www.instagram.com/shravan_codes/"
+            },
+            {
+                "key": "github",
+                "value": "https://github.com/shravan-dev"
+            },
+            {
+                "key": "project",
+                "value": "https://shravan-portfolio.vercel.app"
+            }
+        ]
+    },
+    {
+        "_id": "67fcd58e6d8d02d21351fcfc",
+        "applicationId": "67fcd58e6d8d02d21351fcf8",
+        "jobId": "67fcae256d8d02d21351fcb9",
+        "applicationDetails": {
+            "bidAmount": 260000,
+            "coverLetter": "Ananya Sinha\n[Phone: +91 9876541230]\n[Email: ananya.sinha@gmail.com]\n[LinkedIn: https://www.linkedin.com/in/ananya-sinha-281/]\n[GitHub: https://github.com/ananyasinha]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for AI-Powered Chatbot Developer Position\n\nDear Hiring Manager,\n\nI am excited to apply for the AI-Powered Chatbot Developer position at [Company Name]. With a strong background in backend development and expertise in database management, I am confident in my ability to build and optimize scalable chatbot systems.\n\nMy experience with Node.js, Python, and machine learning models has enabled me to implement intelligent solutions that enhance user interactions. I am particularly skilled in integrating AI functionalities into robust backend systems and ensuring their security and efficiency.\n\nThank you for considering my application. I am eager to bring my technical skills and dedication to your team.\n\nWarm regards,\nAnanya Sinha\n[Phone: +91 9876541230] | [Email: ananya.sinha@gmail.com]",
+            "status": "published"
+        },
+        "userDetails": [
+            {
+                "username": [
+                    "ananya_sinha"
+                ],
+                "email": [
+                    "ananya.sinha@gmail.com"
+                ],
+                "profilePic": []
+            }
+        ],
+        "userSkills": [
+            [
+                "backend",
+                "nodejs",
+                "database",
+                "cloud"
+            ]
+        ],
+        "links": [
+            {
+                "key": "linkedIn",
+                "value": "https://www.linkedin.com/in/ananya-sinha-281/"
+            },
+            {
+                "key": "instagram",
+                "value": "https://www.instagram.com/ananya.codes/"
+            },
+            {
+                "key": "github",
+                "value": "https://github.com/ananyasinha"
+            },
+            {
+                "key": "project",
+                "value": "https://github.com/ananyasinha/ecommerce-api"
+            }
+        ]
+    },
+    {
+        "_id": "67fcd5ac6d8d02d21351fd03",
+        "applicationId": "67fcd5ac6d8d02d21351fcff",
+        "jobId": "67fcae256d8d02d21351fcb9",
+        "applicationDetails": {
+            "bidAmount": 250000,
+            "coverLetter": "Priya Rai\n[Phone: +91 9876543210]\n[Email: priya.rai@example.com]\n[LinkedIn: https://www.linkedin.com/in/priyarai-dev/]\n[GitHub: https://github.com/priyarai-ds]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for AI-Powered Chatbot Developer Position\n\nDear Hiring Manager,\n\nI am writing to express my interest in the AI-Powered Chatbot Developer position at [Company Name]. With expertise in Python, machine learning, and NLP, I have developed data-driven models and AI solutions that enhance user experiences.\n\nMy experience includes designing conversational agents using OpenAI APIs and TensorFlow, with a focus on performance optimization and seamless integration. I am eager to contribute my analytical skills and passion for AI to create impactful chatbot solutions for your organization.\n\nThank you for considering my application. I look forward to discussing how I can contribute to your team.\n\nWarm regards,\nPriya Rai\n[Phone: +91 9876543210] | [Email: priya.rai@example.com]",
+            "status": "published"
+        },
+        "userDetails": [
+            {
+                "username": [
+                    "priya_rai"
+                ],
+                "email": [
+                    "priya.rai@example.com"
+                ],
+                "profilePic": []
+            }
+        ],
+        "userSkills": [
+            [
+                "data scientist",
+                "machine learning",
+                "python"
+            ]
+        ],
+        "links": [
+            {
+                "key": "linkedIn",
+                "value": "https://www.linkedin.com/in/priyarai-dev/"
+            },
+            {
+                "key": "instagram",
+                "value": "https://www.instagram.com/priya.data/"
+            },
+            {
+                "key": "github",
+                "value": "https://github.com/priyarai-ds"
+            },
+            {
+                "key": "project",
+                "value": "https://priyarai-ml-projects.streamlit.app"
+            }
+        ]
+    }
+]
+
+500
+{
+    message:"failed to retrive jobs",
+    error:error.message
+}

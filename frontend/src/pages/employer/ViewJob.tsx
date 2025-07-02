@@ -99,7 +99,7 @@ const ViewJobs = () => {
   };
 
   const viewApplicants = (jobId) => {
-    navigate(`/applicants/${jobId}`);
+    navigate(`/employer/view-applicants/${jobId}`);
   };
 
   const viewAgreed = (jobId)=>{

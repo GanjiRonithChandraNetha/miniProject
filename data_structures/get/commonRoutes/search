@@ -1,0 +1,94 @@
+output:
+--------
+
+query url with paramenter search;
+---------------------------------
+
+[{
+  "_id": {
+    "$oid": "6808871150532fc5377e8221"
+  },
+  "title": "AI-Powered Chatbot Developer",
+  "description": "Job Title: AI Chatbot Developer (Node.js & Python)\n\nJob Type: Full-Time / Contract / Freelance\n\nLocation: Remote / On-Site (Specify Location)\n\nSalary: Competitive, based on experience\n\nJob Overview:\nWe are looking for an AI Chatbot Developer to design, develop, and deploy intelligent chatbot solutions. The ideal candidate should have expertise in AI, NLP, and chatbot frameworks, particularly using Node.js, Python, and OpenAI APIs.\n\nKey Responsibilities:\n\nDevelop AI-driven chatbots using NLP models\n\nIntegrate chatbots into web and mobile applications\n\nImplement speech-to-text and text-to-speech features\n\nTrain and fine-tune machine learning models for better user interaction\n\nEnsure chatbot security and data privacy compliance\n\nMonitor and improve chatbot performance through analytics\n\nWork closely with UI/UX designers to enhance conversational experience\n\nPerform testing, debugging, and deployment of chatbots.",
+  "skills": [
+    "Node.js",
+    "Python",
+    "NLP",
+    "OpenAI",
+    "Dialogflow",
+    "Chatbot Development",
+    "TensorFlow",
+    "REST API",
+    "Socket.io",
+    "Machine Learning",
+    "AWS",
+    "Firebase",
+    "MongoDB",
+    "MySQL",
+    "Git",
+    "GitHub"
+  ],
+  "budget": 250000,
+  "deadline": {
+    "$date": "2025-08-15T00:00:00.000Z"
+  },
+  "status": "vacant",
+  "createdAt": {
+    "$date": "2025-04-23T06:22:09.556Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6808872d50532fc5377e8225"
+  },
+  "title": "Blockchain Developer - Smart Contracts",
+  "description": "Job Title: Blockchain Developer (Smart Contracts & Web3)\n\nJob Type: Full-Time / Contract / Freelance\n\nLocation: Remote / On-Site (Specify Location)\n\nSalary: Competitive, based on experience\n\nJob Overview:\nWe are seeking a Blockchain Developer to build and deploy secure smart contracts and decentralized applications (DApps). The ideal candidate should have experience with Solidity, Ethereum, and Web3.js, and be proficient in designing blockchain-based solutions.\n\nKey Responsibilities:\n\nDevelop and deploy Ethereum-based smart contracts\n\nIntegrate blockchain features into existing applications\n\nEnsure security and performance of smart contracts\n\nOptimize gas fees and transaction processing\n\nDevelop decentralized identity and payment solutions\n\nMonitor blockchain network performance and security\n\nWork with frontend teams to integrate blockchain functionalities\n\nPerform audits, testing, and deployment of smart contracts.",
+  "skills": [
+    "Solidity",
+    "Ethereum",
+    "Web3.js",
+    "Smart Contracts",
+    "DApp Development",
+    "NFTs",
+    "IPFS",
+    "Hardhat",
+    "Truffle",
+    "DeFi",
+    "Polygon",
+    "Solana",
+    "Rust",
+    "MongoDB",
+    "GraphQL",
+    "Git",
+    "GitHub"
+  ],
+  "budget": 300000,
+  "deadline": {
+    "$date": "2025-09-10T00:00:00.000Z"
+  },
+  "status": "vacant",
+  "createdAt": {
+    "$date": "2025-04-23T06:22:37.537Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6808916850532fc5377e82ca"
+  },
+  "title": "IoT Developer - Smart Home Automation",
+  "description": "Job Title: IoT Developer (Embedded Systems & Cloud Integration)\\n\\nJob Type: Full-Time / Contract / Freelance\\n\\nLocation: Remote / On-Site (Specify Location)\\n\\nSalary: Competitive, based on experience\\n\\nJob Overview:\\nWe are looking for an IoT Developer to build and integrate smart home automation systems. The ideal candidate should have expertise in IoT protocols, microcontrollers, and cloud platforms such as AWS IoT or Google Cloud IoT.\\n\\nKey Responsibilities:\\n\\nDevelop IoT applications for smart home devices\\n\\nIntegrate sensors, actuators, and controllers with cloud platforms\\n\\nImplement real-time data processing and remote device management\\n\\nEnsure security, scalability, and interoperability of IoT systems\\n\\nOptimize energy efficiency and network reliability\\n\\nDevelop mobile apps or dashboards for IoT control\\n\\nPerform testing, debugging, and deployment of IoT solutions.",
+  "skills": [
+    "IoT, Arduino, Raspberry Pi, MQTT, AWS IoT, Google Cloud IoT, Embedded C, Python, Node.js, Microcontrollers, Sensors, Firebase, MongoDB, MySQL, Cybersecurity, Git, GitHub"
+  ],
+  "budget": 220000,
+  "deadline": {
+    "$date": "2025-08-20T00:00:00.000Z"
+  },
+  "status": "vacant",
+  "createdAt": {
+    "$date": "2025-04-23T07:06:16.790Z"
+  },
+  "__v": 0
+}]

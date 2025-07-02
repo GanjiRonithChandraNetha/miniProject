@@ -152,7 +152,7 @@ const SignUp = () => {
         console.log(formData.password);
         console.log(dataToSend);
         // Simulate API call
-          const response = await axios.post("http://localhost:3636/v1/application/signIn", dataToSend);
+          const response = await axios.post("http://localhost:3636/v1/application/signUp", dataToSend);
           console.log(response);
           localStorage.setItem("FreeToken",response.data.token)
           setSuccessMessage(response.data.message || 'Account created successfully!');

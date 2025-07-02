@@ -63,3 +63,37 @@
         }        
     ]
 }
+
+
+Ai:
+[
+    {
+        "bidAmount": 250000,
+        "coverLetter": "Shravan Kumar\n[Phone: +91 9876543211]\n[Email: shravan.kumar@example.com]\n[LinkedIn: https://www.linkedin.com/in/shravankumar/]\n[GitHub: https://github.com/shravan-dev]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for AI-Powered Chatbot Developer Position\n\nDear Hiring Manager,\n\nAs a frontend specialist with expertise in React and UI/UX, I bring a unique perspective to chatbot development through seamless user interface integration. While my core strength lies in frontend development, I have successfully implemented chatbot interfaces in web applications using Node.js and Socket.io.\n\nMy portfolio (https://shravan-portfolio.vercel.app) showcases conversational UI projects with focus on user engagement and interaction design. I am particularly interested in bridging the gap between AI functionality and user-friendly interfaces, ensuring intuitive chatbot experiences.\n\nThank you for considering my application. I would welcome the opportunity to discuss how my frontend expertise could complement your AI development team.\n\nBest regards,\nShravan Kumar\n[Email: shravan.kumar@example.com] | [GitHub: https://github.com/shravan-dev]"
+    },
+    {
+        "bidAmount": 250000,
+        "coverLetter": "Ananya Sinha\n[Phone: +91 9876543212]\n[Email: ananya.sinha@gmail.com]\n[LinkedIn: https://www.linkedin.com/in/ananya-sinha-281/]\n[GitHub: https://github.com/ananyasinha]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for AI Chatbot Developer Role\n\nDear Hiring Manager,\n\nWith strong backend development expertise in Node.js and cloud technologies, I have built scalable chat systems and REST APIs (demonstrated in my e-commerce API project: https://github.com/ananyasinha/ecommerce-api). My experience with AWS and MongoDB aligns perfectly with your requirement for secure, cloud-based chatbot deployments.\n\nI specialize in creating robust backend architectures for conversational AI, focusing on system reliability and real-time communication using WebSocket technologies. My approach combines efficient database design with optimized API integrations to support complex chatbot functionalities.\n\nI would appreciate the opportunity to contribute my backend development skills to your AI initiatives. Thank you for your consideration.\n\nSincerely,\nAnanya Sinha\n[Email: ananya.sinha@gmail.com] | [GitHub: https://github.com/ananyasinha]"
+    },
+    {
+        "bidAmount": 250000,
+        "coverLetter": "Priya Rai\n[Phone: +91 9876543210]\n[Email: priya.rai@example.com]\n[LinkedIn: https://www.linkedin.com/in/priyarai-dev/]\n[GitHub: https://github.com/priyarai-ds]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for AI-Powered Chatbot Developer Position\n\nDear Hiring Manager,\n\nI am writing to express my interest in the AI-Powered Chatbot Developer position at [Company Name]. With expertise in Python, machine learning, and NLP, I have developed data-driven models and AI solutions that enhance user experiences.\n\nMy experience includes designing conversational agents using OpenAI APIs and TensorFlow, with a focus on performance optimization and seamless integration. I am eager to contribute my analytical skills and passion for AI to create impactful chatbot solutions for your organization.\n\nThank you for considering my application. I look forward to discussing how I can contribute to your team.\n\nWarm regards,\nPriya Rai\n[Phone: +91 9876543210] | [Email: priya.rai@example.com]"
+    }
+] 
+
+block chain
+
+[
+    {
+        "bidAmount": 300000,
+        "coverLetter": "Shravan Kumar\n[Phone: +91 9876543211]\n[Email: shravan.kumar@example.com]\n[LinkedIn: https://www.linkedin.com/in/shravankumar/]\n[GitHub: https://github.com/shravan-dev]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for Blockchain Developer (Smart Contracts) Position\n\nDear Hiring Manager,\n\nAs a frontend specialist with expertise in React and Web3 integration, I bring a unique combination of UI/UX design skills and blockchain implementation capabilities. My experience includes developing DApp interfaces using Web3.js and integrating smart contract functionalities into responsive web applications.\n\nMy portfolio (https://shravan-portfolio.vercel.app) showcases NFT marketplace interfaces and DeFi dashboards with real-time blockchain data visualization. I specialize in creating user-friendly interfaces for complex blockchain operations, ensuring seamless interaction with smart contracts while maintaining security best practices.\n\nI would be excited to contribute my frontend expertise to your blockchain development team, particularly in bridging smart contract functionality with exceptional user experiences.\n\nBest regards,\nShravan Kumar\n[Email: shravan.kumar@example.com] | [GitHub: https://github.com/shravan-dev]"
+    },
+    {
+        "bidAmount": 300000,
+        "coverLetter": "Ananya Sinha\n[Phone: +91 9876543212]\n[Email: ananya.sinha@gmail.com]\n[LinkedIn: https://www.linkedin.com/in/ananya-sinha-281/]\n[GitHub: https://github.com/ananyasinha]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for Smart Contract Developer Role\n\nDear Hiring Manager,\n\nWith expertise in backend systems and cloud infrastructure, I have successfully implemented blockchain solutions using Node.js and MongoDB. My e-commerce API project (https://github.com/ananyasinha/ecommerce-api) includes payment gateway integrations that I've adapted for blockchain transactions, demonstrating my ability to merge traditional systems with decentralized technologies.\n\nI specialize in:\n- Developing scalable backend architectures for DApps\n- Implementing GraphQL APIs for blockchain data querying\n- Optimizing gas fees through efficient contract design\n- Deploying secure smart contracts using Hardhat\n\nI would welcome the opportunity to contribute my full-stack development skills to your blockchain initiatives.\n\nSincerely,\nAnanya Sinha\n[Email: ananya.sinha@gmail.com] | [GitHub: https://github.com/ananyasinha]"
+    },
+    {
+        "bidAmount": 300000,
+        "coverLetter": "Priya Rai\n[Phone: +91 9876543210]\n[Email: priya.rai@example.com]\n[LinkedIn: https://www.linkedin.com/in/priyarai-dev/]\n[GitHub: https://github.com/priyarai-ds]\n\nDate: April 13, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for Blockchain Developer - Smart Contracts Position\n\nDear Hiring Manager,\n\nWhile my primary expertise lies in data science, I have successfully applied machine learning techniques to optimize smart contract performance and transaction patterns. My Python proficiency extends to blockchain development, where I've implemented automated testing frameworks for Ethereum contracts and analyzed on-chain data for DeFi applications.\n\nKey blockchain contributions:\n- Developed ML models for gas price prediction\n- Created analytics dashboards for NFT collections\n- Implemented IPFS-based data storage solutions\n- Conducted smart contract security analysis using Python scripts\n\nI bring a data-driven approach to blockchain development, ensuring both technical robustness and business relevance.\n\nWarm regards,\nPriya Rai\n[Email: priya.rai@example.com] | [GitHub: https://github.com/priyarai-ds]"
+    }
+]

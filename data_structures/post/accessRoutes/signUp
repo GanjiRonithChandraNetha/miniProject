@@ -1,0 +1,43 @@
+input:
+------
+{
+    "userName": "ronithganji",
+    "email": "ronithganji21062004@gmail.com",
+    "password": "₹7386Ronith!",
+    "skills": ["web-developer", "devops", "fullstack"],
+    "links": {
+        "linkedIn": "https://www.linkedin.com/in/ronith-ganji-023093301/",
+        "instagram": "https://www.instagram.com/ronith_chandra/",
+        "github": "https://www.github.com/RonithChandraGanjiNetha",
+        "project": "still not deployed check it on github"
+    }
+}
+
+output:
+-------
+
+200 ----------------
+{
+    message:"successfully created user",
+    token:token
+}
+
+400 ----------------
+{
+    message:"user alredy exsits",
+}
+402 ----------------
+{
+    message:'user input error',
+    error:error.message
+}
+401 ----------------
+{
+    message:"username or email already exists",
+    error:err.message
+}
+500 ----------------
+{
+    message:"faild to create user",
+    error:err.message
+}

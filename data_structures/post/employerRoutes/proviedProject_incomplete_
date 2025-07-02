@@ -1,0 +1,19 @@
+input:
+------
+{
+    "jobId":"67fcae256d8d02d21351fcb9",
+    "applicationId": "67fcd58e6d8d02d21351fcf8"
+}
+
+output:
+-------
+
+400
+{message:"incomple paramenters sent"}
+{message: "Freelancer not found" }
+
+500
+{
+    message:"internal server error",
+    error:error.message
+}

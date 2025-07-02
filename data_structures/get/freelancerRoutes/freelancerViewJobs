@@ -1,0 +1,26 @@
+input : using token 
+output:
+--------
+{
+    "rejected": [],
+    "draft": [],
+    "appointed": [],
+    "published": [],
+    "selected": [
+        {
+            "freelancerId": "6808861750532fc5377e81fc",
+            "applicationId": "68089e7d50532fc5377e834d",
+            "applicationDetails": {
+                "_id": "68089e7d50532fc5377e834d",
+                "bidAmount": 4544,
+                "coverLetter": "vdfsbdnhmj,hk\n[Phone: 6787654446765]\n[Email: ronithganji21@gmail.com]\n[LinkedIn: https://slfjdlsjf.com]\n[GitHub: https://slfjdlsjf.com]\n\nDate: April 23, 2025\n\nHiring Manager\n[Company Name]\n\nSubject: Application for AI-Powered Chatbot Developer\n\nDear Hiring Manager,\n\nI am excited to apply for the AI-Powered Chatbot Developer at [Company Name]. With a strong foundation in mobile and web development, coupled with my experience in integrating AI solutions, I am confident in my ability to contribute effectively to your team.\n\nDuring my career, I have dgtyhjnbv\n\nMy technical expertise includes:\n\ndfghj\n\nI am particularly drawn to this role because it aligns with my passion for designing intelligent chatbot solutions that enhance user interactions and streamline processes. My commitment to innovation and problem-solving makes me eager to bring value to your organization.\n\nThank you for considering my application. I look forward to discussing how I can contribute to your mission of delivering impactful AI-driven solutions.\n\nWarm regards,\nvdfsbdnhmj,hk\n[Phone: 6787654446765] | [Email: ronithganji21@gmail.com]",
+                "status": "selected",
+                "createdAt": "2025-04-23T08:02:05.032Z",
+                "updatedAt": "2025-05-05T15:24:21.362Z",
+                "__v": 0
+            },
+            "jobId": "6808871150532fc5377e8221"
+        }
+    ],
+    "ready": []
+}

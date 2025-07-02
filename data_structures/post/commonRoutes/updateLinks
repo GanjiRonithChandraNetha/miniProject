@@ -1,0 +1,21 @@
+input:
+------
+{
+    "type":"DELETE",
+    "skillId":"67fcabba6d8d02d21351fcae"
+}
+{
+    "type":"INSERT",
+    "skill":"AI-ENGINEER"
+}
+
+output
+200
+{"message": "deleted skill"}
+{message:"skill added"}
+
+400
+{message:"bad request"}
+
+500
+{message:"skill not updated"}
