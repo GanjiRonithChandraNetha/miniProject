@@ -1,4 +1,8 @@
-import { applyJob,viewApplications,updateApplication } from "../controllers/freelancerControllers/applictionControllers.mjs";
+import { 
+    applyJob,
+    viewApplications,
+    updateApplication 
+} from "../controllers/freelancerControllers/applictionControllers.mjs";
 import { agreeJob,freelancerViewJobs } from "../controllers/freelancerControllers/jobControllers.mjs";
 import { Router } from "express";
 const router = Router();

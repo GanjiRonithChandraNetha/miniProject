@@ -15,10 +15,7 @@ const users = new Schema({
         type:String,
         required:true,
     },
-    profilePic:{
-        data: Buffer,
-        contentType: String
-    },
+    profilePic:String,
     cooperationRatio:{
         type:Number,
         default:0

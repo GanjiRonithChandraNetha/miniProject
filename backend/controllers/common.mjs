@@ -7,6 +7,7 @@ import dotenv from 'dotenv'
 import jwt  from 'jsonwebtoken'
 import credentialChecker from '../utils/validaters/signInValidator.mjs';
 import issueModel from '../models/issues.mjs';
+import path from 'path';
 
 dotenv.config();
 
@@ -228,11 +229,17 @@ const getProfile = async(req,res)=>{
 const updateSkills = async(req,res)=>{
     try{
         if(req.body.type === "INSERT" && req.body.skill){
-            await skillsModel.create({
+            const data = await skillsModel.create({
                 userId:req.user._id,
                 skill:req.body.skill
             })
-            res.status(200).json({message:"skill added"});
+            // console.log(data);
+            // console.log(data.data.skill,data.data._id)
+            res.status(200).json({
+                message:"skill added",
+                skill:data.skill,
+                _id:data._id
+            });
         }else if(req.body.skillId && req.body.type === "DELETE"){
             await skillsModel.deleteOne({_id:req.body.skillId})
             res.status(200).json({message:"deleted skill"})
@@ -240,6 +247,7 @@ const updateSkills = async(req,res)=>{
             res.status(400).json({message:"bad request"})
         }
     }catch(err){
+        console.log(err.message);
         res.status(500).json({
             message:"skill not updated"
         })
@@ -379,7 +387,27 @@ const viewJob = async(req,res)=>{
     }
 }
 
-export {signIn,
+const uploadProfilePic = async(req,res)=>{
+    try {
+        const id = req.user._id;
+        const pic = (req.file.path);
+        if(!id || !pic){
+            return res.status(404).json({message:"all fields are not sent"});
+        }
+        const updatedUser = await usersModel.findByIdAndUpdate(
+            id,
+            {$set:{profilePic:pic}},
+            {new:true,runValidators:true}
+        );
+        res.status(200).json(updatedUser);
+    } catch (error) {
+        console.log("uploadProfilePic",error.message,error);
+        res.status(500).json({message:"internal server error"});
+    }
+}
+
+export {
+    signIn,
     signUp,
     getProfile,
     updateSkills,
@@ -387,5 +415,6 @@ export {signIn,
     viewIssue,
     raiseIssue,
     search,
-    viewJob
+    viewJob,
+    uploadProfilePic
 }

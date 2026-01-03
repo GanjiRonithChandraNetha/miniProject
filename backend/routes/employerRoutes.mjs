@@ -1,5 +1,13 @@
 import {Router} from 'express';
-import {createJob,employerViewJobs,updateJob, sendAgreement, viewAgreed, getApplicantsByJob,proviedProject} from '../controllers/employer.mjs';
+import {
+    createJob,
+    employerViewJobs,
+    updateJob, 
+    sendAgreement, 
+    viewAgreed, 
+    getApplicantsByJob,
+    proviedProject
+} from '../controllers/employer.mjs';
 
 const router = Router();
 router.post("/create",createJob);

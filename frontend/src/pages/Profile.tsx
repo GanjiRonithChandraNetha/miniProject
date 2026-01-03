@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Camera, LinkIcon, Mail, Edit2, Plus, X, Save, Loader } from 'lucide-react';
+import { Camera, LinkIcon, Mail, Edit2, Plus, X, Save, Loader, LigatureIcon } from 'lucide-react';
 
 const Profile = () => {
   // State for user data
@@ -63,6 +63,7 @@ const Profile = () => {
 
   // Format skills for display
   const formatSkill = (skill) => {
+    console.log(skill);
     return skill
       .split('-')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
@@ -71,6 +72,7 @@ const Profile = () => {
 
   // Handle adding a new skill
   const handleAddSkill = async () => {
+    // console.log("IMPORTANT",newSkill,"IMPORTANT");
     if (!newSkill.trim()) return;
     
     try {
@@ -84,12 +86,15 @@ const Profile = () => {
           'Content-Type': 'application/json',
         },
       });
-      
+      console.log(response);
       setUserData(prev => ({
         ...prev,
-        skills: [...(prev.skills || []), response.data]
+        skills: [...(prev.skills || []), {
+          skill:response.data.skill,
+          _id:response.data._id
+        }]
       }));
-      
+      console.log(userData);
       setNewSkill('');
     } catch (err) {
       console.error('Failed to add skill:', err);
@@ -168,8 +173,9 @@ const Profile = () => {
   };
 
   // Handle removing a link
-  const handleRemoveLink = async (linkId) => {
+  const handleRemoveLink = async (linkId,idx) => {
     try {
+      console.log(linkId,idx)
       setUpdatingLinks(true);
       await axios.post(`${API_BASE_URL}/profile/update/link`, {
         type: "DELETE",
@@ -183,7 +189,10 @@ const Profile = () => {
       
       setUserData(prev => {
         const updatedLinks = { ...prev.links };
-        delete updatedLinks[linkId];
+        console.log("first",updatedLinks,linkId);
+        console.log(updatedLinks[idx]);
+        delete updatedLinks[idx];
+        console.log("second",updatedLinks,linkId);
         return {
           ...prev,
           links: updatedLinks
@@ -203,7 +212,7 @@ const Profile = () => {
     if (!file) return;
     
     const formData = new FormData();
-    formData.append('image', file);
+    formData.append('profilePic', file);
     
     try {
       setUploadingProfileImage(true);
@@ -218,6 +227,7 @@ const Profile = () => {
         ...prev,
         profileImage: response.data.imageUrl
       }));
+      console.log(userData);
     } catch (err) {
       console.error('Failed to upload profile image:', err);
       alert('Failed to upload profile image');
@@ -366,23 +376,31 @@ const Profile = () => {
               
               {/* Dynamic Links */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {userData.links && Object.entries(userData.links).map(([id, linkData]) => (
-                  <div key={id} className="flex items-center space-x-2 text-gray-500">
-                    <LinkIcon className="h-5 w-5" />
-                    <a href={linkData.url || linkData.linkValue} className="text-indigo-600 hover:text-indigo-500 flex-grow truncate">
-                      {linkData.platform || linkData.linkKey}
-                    </a>
-                    {isEditingLinks && (
-                      <button 
-                        onClick={() => handleRemoveLink(id)}
-                        className="text-red-500 hover:text-red-700"
-                        disabled={updatingLinks}
-                      >
-                        <X className="h-4 w-4" />
-                      </button>
-                    )}
-                  </div>
-                ))}
+                {
+                  userData.links && 
+                  Object.entries(userData.links).map(
+                    ([id, linkData]) => {
+                        const keys = Object.keys(linkData);
+                        return (
+                        <div key={linkData[keys[0]]} className="flex items-center space-x-2 text-gray-500">
+                          <LinkIcon className="h-5 w-5" />
+                          <a href={linkData[keys[1]] || linkData.linkValue} className="text-indigo-600 hover:text-indigo-500 flex-grow truncate">
+                            {keys[1] || linkData.linkKey}
+                          </a>
+                          {isEditingLinks && (
+                            <button 
+                              onClick={() => handleRemoveLink(linkData[keys[0]],id)}
+                              className="text-red-500 hover:text-red-700"
+                              disabled={updatingLinks}
+                            >
+                              <X className="h-4 w-4" />
+                            </button>
+                          )}
+                        </div>
+                      )
+                    }
+                  )
+                }
               </div>
               
               {/* Add new link form */}
